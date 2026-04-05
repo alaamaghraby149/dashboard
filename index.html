@@ -1,12 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./dist/output.css">
     <title>Dashboard</title>
 </head>
-<body>
 
+<body class="bg-[#F5F6FA] dark:bg-[#1B2431]">
+    
+    <!-- header -->
+    <header class="relative w-full bg-whiteColor py-4 dark:bg-[#273142]">
+        <nav>
+            <div class="container">
+                <div class="flex items-center gap-3 md:gap-5 lg:hidden">
+                    <div id="hamburger" class="nav__hamburger-icon flex items-center lg:hidden">
+                        <i class="fa-solid fa-bars text-[20px] md:text-[28px] dark:text-whiteColor"></i>
+                    </div>
+                    <div
+                        class="nav__searchbar mx-1 flex flex-1 items-center gap-2 rounded-full bg-[#F5F6FA] px-3 py-2 dark:bg-[#323D4E]">
+                        <i class="fa-solid fa-magnifying-glass text-[#646464] dark:text-whiteColor"></i>
+                        <input
+                            class="w-full rounded-md bg-[#F5F6FA] px-1 text-sm outline-none placeholder:text-[#646464] dark:bg-[#323D4E] dark:text-whiteColor"
+                            type="text" placeholder="Search">
+                    </div>
+                    <div class="nav__data flex shrink-0 items-center gap-2 md:gap-4 relative">
+                        <div class="relative">
+                            <i class="fa-solid fa-bell text-[24px] text-blueColor md:text-[40px]"></i>
+                            <span
+                                class="absolute top-0 right-0 md:-top-[6px] h-4 w-4 md:text-[16px] md:h-7 md:w-7 rounded-full bg-[#F93C65] p-1 text-whiteColor text-[8px] flex items-center justify-center">6</span>
+                        </div>
+                        <div class="h-9 w-9 md:h-12 md:w-12 rounded-full nav__profile-img mb-1 ">
+
+                        </div>
+                                <div
+                                    class="dropdown 
+                                    absolute right-0 top-12 
+                                    z-30 mt-3 flex w-64 translate-y-1 
+                                    flex-col overflow-hidden rounded-xl 
+                                    border border-[#E6EBF2] bg-white p-2 
+                                    opacity-0 shadow-[0_16px_40px_rgba(18,22,60,0.18)] 
+                                    transition-all duration-200 pointer-events-none invisible 
+                                    dark:border-[#3A4558] dark:bg-[#273142] xl:top-14">
+                                    <div
+                                        class="user flex items-center gap-3 rounded-lg px-2 py-2 transition-colors duration-200 hover:bg-[#EEF4FF] dark:hover:bg-[#323D4E]">
+                                        <span
+                                            class="flex h-9 w-9 items-center justify-center rounded-full bg-[#EAF1FF] text-blueColor dark:bg-[#364359] dark:text-[#9AB7FF]">
+                                            <i class="fa-solid fa-circle-user text-[18px]"></i>
+                                        </span>
+                                        <div class="flex flex-col">
+                                            <p class="text-sm font-bold text-[#202224] dark:text-whiteColor">Alaa</p>
+                                            <p class="text-xs text-[#7C8798] dark:text-[#B0BAC9]">Administrator</p>
+                                        </div>
+                                    </div>
+                                    <div class="modes mt-1 flex items-center justify-between rounded-lg px-2 py-2">
+                                        <button id="computer" type="button"
+                                            class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-[#F4F7FD] text-[#5C6678] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#E4EDFF] hover:text-blueColor dark:bg-[#364359] dark:text-[#D7DEEA] dark:hover:bg-[#46546E]">
+                                            <i class="fa-solid fa-desktop text-[15px]"></i>
+                                        </button>
+                                        <button id="dark" type="button"
+                                            class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-[#F4F7FD] text-[#5C6678] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#E4EDFF] hover:text-blueColor dark:bg-[#364359] dark:text-[#D7DEEA] dark:hover:bg-[#46546E]">
+                                            <i class="fa-solid fa-moon text-[15px]"></i>
+                                        </button>
+                                        <button id="light" type="button"
+                                            class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-[#F4F7FD] text-[#5C6678] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#E4EDFF] hover:text-blueColor dark:bg-[#364359] dark:text-[#D7DEEA] dark:hover:bg-[#46546E]">
+                                            <i class="fa-solid fa-sun text-[15px]"></i>
+                                        </button>
+                                    </div>
+                                    <button type="button"
+                                        class="sign-out mt-1 flex items-center gap-3 rounded-lg px-2 py-2 text-left transition-colors duration-200 hover:bg-[#FFF0F3] dark:hover:bg-[#3C3340]">
+                                        <span
+                                            class="flex h-9 w-9 items-center justify-center rounded-full bg-[#FFE9EE] text-[#F93C65] dark:bg-[#4A3440]">
+                                            <i class="fa-solid fa-arrow-right-from-bracket text-[14px]"></i>
+                                        </span>
+                                        <p class="text-sm font-semibold text-[#B4233A] dark:text-[#FF8DA4]">Sign out</p>
+                                    </button>
+                                </div>
+                    </div>
+                </div>
+
+
+                <div class="hidden w-full lg:block">
+                    <div class="flex w-full items-center justify-between gap-4 xl:gap-6">
+                        <div
+                            class="nav__searchbar flex w-full max-w-[520px] items-center gap-3 rounded-full bg-[#F5F6FA] px-4 py-3 dark:bg-[#323D4E]">
+                            <i class="fa-solid fa-magnifying-glass text-[#646464] dark:text-whiteColor"></i>
+                            <input
+                                class="w-full rounded-md bg-[#F5F6FA] text-sm outline-none placeholder:text-[#646464] dark:bg-[#323D4E] dark:text-whiteColor"
+                                type="text" placeholder="Search">
+                        </div>
+                        <div class="nav__data flex shrink-0 items-center gap-3 xl:gap-5">
+                            <div class="relative">
+                                <i class="fa-solid fa-bell cursor-pointer text-blueColor lg:text-[26px]"></i>
+                                <span
+                                    class="absolute top-0 right-0  lg:h-[18px] lg:w-[18px]  2xl:h-5 2xl:w-5 2xl:text-[12px]  rounded-full bg-[#F93C65] p-1 text-whiteColor text-[8px] flex items-center justify-center">6</span>
+                            </div>
+                            <div class="nav__data-lang relative hidden xl:flex">
+                                <button id="langToggle" type="button"
+                                    class="lang flex items-center gap-2 rounded-full px-2 py-1 transition-colors duration-200 hover:bg-[#EEF4FF] dark:hover:bg-[#323D4E]"
+                                    aria-label="Change language" aria-expanded="false">
+                                    <span class="flag overflow-hidden rounded-sm">
+                                        <img id="langimg" class="h-[24px] w-9" src="./assets/images/Flag.png" alt="Language flag">
+                                    </span>
+                                    <p id="selectedLang" class="text-sm text-[#646464] dark:text-whiteColor">English</p>
+                                    <i
+                                        class="lang-chevron fa-solid fa-angle-down text-[#646464] transition-transform duration-200 dark:text-whiteColor"></i>
+                                </button>
+
+                                <div id="langMenu"
+                                    class="lang-dropdown absolute right-0 top-11 z-30 flex w-40 translate-y-1 flex-col rounded-xl border border-[#E6EBF2] bg-white p-2 opacity-0 shadow-[0_12px_30px_rgba(18,22,60,0.14)] transition-all duration-200 pointer-events-none invisible dark:border-[#3A4558] dark:bg-[#273142]">
+                                    <button type="button" data-lang="English"
+                                        class="lang-option flex gap-2  rounded-lg px-3 py-2 text-left text-sm font-medium text-[#3C4658] transition-colors duration-200 hover:bg-[#EEF4FF] hover:text-blueColor dark:text-[#DDE6F3] dark:hover:bg-[#323D4E]">
+                                        <img class="h-[18px] w-6" src="/assets/images/Flag.png" alt="">
+                                        <span>English</span>
+                                    </button>
+                                    <button type="button" data-lang="Arabic"
+                                        class="lang-option flex gap-2  rounded-lg px-3 py-2 text-left text-sm font-medium text-[#3C4658] transition-colors duration-200 hover:bg-[#EEF4FF] hover:text-blueColor dark:text-[#DDE6F3] dark:hover:bg-[#323D4E]">
+                                        <img class="h-[18px] w-6 rounded" src="/assets/images/flag-arabic.png" alt="">
+                                        <span>Arabic</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="nav__data-profile relative flex cursor-pointer items-center gap-3">
+                                <div class="nav__profile-img mb-1 h-10 w-10 rounded-full xl:h-[44px] xl:w-[44px]"></div>
+                                <div class="hidden flex-col xl:flex">
+                                    <div class="name text-sm font-bold text-[#404040] dark:text-whiteColor">alaa</div>
+                                    <p class="text-sm font-semibold text-[#565656] dark:text-whiteColor">Admin</p>
+                                </div>
+                                <div class="hidden xl:block">
+                                    <i
+                                        class="profile-chevron fa-solid fa-angle-down flex h-7 w-7 items-center justify-center rounded-full border border-[#D9E1EE] text-[#646464] transition-all duration-300 ease-out dark:border-[#4A5568] dark:text-whiteColor"></i>
+                                </div>
+                                <div
+                                    class="dropdown 
+                                    absolute right-0 top-12 
+                                    z-30 mt-3 flex w-64 translate-y-1 
+                                    flex-col overflow-hidden rounded-xl 
+                                    border border-[#E6EBF2] bg-white p-2 
+                                    opacity-0 shadow-[0_16px_40px_rgba(18,22,60,0.18)] 
+                                    transition-all duration-200 pointer-events-none invisible 
+                                    dark:border-[#3A4558] dark:bg-[#273142] xl:top-14">
+                                    <div
+                                        class="user flex items-center gap-3 rounded-lg px-2 py-2 transition-colors duration-200 hover:bg-[#EEF4FF] dark:hover:bg-[#323D4E]">
+                                        <span
+                                            class="flex h-9 w-9 items-center justify-center rounded-full bg-[#EAF1FF] text-blueColor dark:bg-[#364359] dark:text-[#9AB7FF]">
+                                            <i class="fa-solid fa-circle-user text-[18px]"></i>
+                                        </span>
+                                        <div class="flex flex-col">
+                                            <p class="text-sm font-bold text-[#202224] dark:text-whiteColor">Alaa</p>
+                                            <p class="text-xs text-[#7C8798] dark:text-[#B0BAC9]">Administrator</p>
+                                        </div>
+                                    </div>
+                                    <div class="modes mt-1 flex items-center justify-between rounded-lg px-2 py-2">
+                                        <button id="computer" type="button"
+                                            class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-[#F4F7FD] text-[#5C6678] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#E4EDFF] hover:text-blueColor dark:bg-[#364359] dark:text-[#D7DEEA] dark:hover:bg-[#46546E]">
+                                            <i class="fa-solid fa-desktop text-[15px]"></i>
+                                        </button>
+                                        <button id="dark" type="button"
+                                            class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-[#F4F7FD] text-[#5C6678] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#E4EDFF] hover:text-blueColor dark:bg-[#364359] dark:text-[#D7DEEA] dark:hover:bg-[#46546E]">
+                                            <i class="fa-solid fa-moon text-[15px]"></i>
+                                        </button>
+                                        <button id="light" type="button"
+                                            class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-[#F4F7FD] text-[#5C6678] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#E4EDFF] hover:text-blueColor dark:bg-[#364359] dark:text-[#D7DEEA] dark:hover:bg-[#46546E]">
+                                            <i class="fa-solid fa-sun text-[15px]"></i>
+                                        </button>
+                                    </div>
+                                    <button type="button"
+                                        class="sign-out mt-1 flex items-center gap-3 rounded-lg px-2 py-2 text-left transition-colors duration-200 hover:bg-[#FFF0F3] dark:hover:bg-[#3C3340]">
+                                        <span
+                                            class="flex h-9 w-9 items-center justify-center rounded-full bg-[#FFE9EE] text-[#F93C65] dark:bg-[#4A3440]">
+                                            <i class="fa-solid fa-arrow-right-from-bracket text-[14px]"></i>
+                                        </span>
+                                        <p class="text-sm font-semibold text-[#B4233A] dark:text-[#FF8DA4]">Sign out</p>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <script src="./src/js/main.js"></script>
 </body>
+
 </html>
