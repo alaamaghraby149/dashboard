@@ -36,6 +36,10 @@ module.exports = {
           input: "#323D4E",
           card: "#364359",
           hoverDark: "#46546E",
+          user: "#8280FF",
+          order: "#FEC53D",
+          sales: "#4AD991",
+          pending: "#FF9066",
         },
 
         text: {
@@ -51,6 +55,12 @@ module.exports = {
           softLight: "#D7DEEA",
           brandLight: "#9AB7FF",
           button: "#5C6678",
+          user: "#8280FF",
+          percent: "#00B69B",
+          order: "#FEC53D",
+          sales: "#4AD991",
+          percentDown: "#F93C65",
+          pending: "#FF9066",
         },
 
         border: {

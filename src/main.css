@@ -3,6 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face{
+  font-family: 'Nunito Sans';
+}
 .first-item::before {
   content: "";
   position: absolute;
@@ -85,4 +88,26 @@
 
 .sidebar--group__header {
   @apply text-text-primary opacity-50 text-left  mb-4 self-start pl-[16.5%]  dark:text-white;
+}
+
+.card{
+  @apply bg-white rounded-[15px] p-5 shadow hover:scale-105 transition ease-in duration-300 
+}
+.card__info{
+  @apply flex items-center justify-between
+}
+.card__info-total{
+  @apply flex flex-col gap-3
+}
+.card__info-total-name{
+  @apply  text-[1rem] font-semibold text-text-primary opacity-50
+}
+.card__info-total-number{
+  @apply font-bold xl:text-[28px] md:text-[20px] lg:text-[24px] text-[18px];
+}
+.card__details{
+  @apply mt-[29px] flex gap-4 items-center ;
+}
+.card:hover .icon i{
+  @apply rotate-12 transition ease-in-out duration-150
 }
