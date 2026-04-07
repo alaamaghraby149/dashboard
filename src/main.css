@@ -6,14 +6,15 @@
 .first-item::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: -58px;
+  top: 110px;
+  left: 0px;
   width: 9px;
   height: 50px;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   background-color: #4880ff;
 }
+
 .nav__profile-img {
   background-image: url("/assets/images/profile\ image.png");
   background-size: cover;
@@ -55,11 +56,6 @@
   transform: translateY(0);
 }
 
-
-
-
-
-
 .nav__data-lang.is-open .lang-dropdown {
   opacity: 1;
   visibility: visible;
@@ -81,4 +77,12 @@
   color: #9dbbff;
   background-color: #3f4d66;
   box-shadow: 0 0 0 2px rgba(157, 187, 255, 0.25);
+}
+
+.sidebar--group {
+  @apply w-full py-3 px-0 text-text-primary tracking-[.3px] h-auto dark:text-white  flex flex-col items-center border-t border-b border-gray-200;
+}
+
+.sidebar--group__header {
+  @apply text-text-primary opacity-50 text-left  mb-4 self-start pl-[16.5%]  dark:text-white;
 }

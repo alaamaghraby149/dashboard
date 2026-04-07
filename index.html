@@ -11,180 +11,321 @@
     <title>Dashboard</title>
 </head>
 
-<body class="bg-[#F5F6FA] dark:bg-[#1B2431]">
-    
-    <!-- header -->
-    <header class="relative w-full bg-whiteColor py-4 dark:bg-[#273142]">
-        <nav>
-            <div class="container">
-                <div class="flex items-center gap-3 md:gap-5 lg:hidden">
-                    <div id="hamburger" class="nav__hamburger-icon flex items-center lg:hidden">
-                        <i class="fa-solid fa-bars text-[20px] md:text-[28px] dark:text-whiteColor"></i>
-                    </div>
-                    <div
-                        class="nav__searchbar mx-1 flex flex-1 items-center gap-2 rounded-full bg-[#F5F6FA] px-3 py-2 dark:bg-[#323D4E]">
-                        <i class="fa-solid fa-magnifying-glass text-[#646464] dark:text-whiteColor"></i>
-                        <input
-                            class="w-full rounded-md bg-[#F5F6FA] px-1 text-sm outline-none placeholder:text-[#646464] dark:bg-[#323D4E] dark:text-whiteColor"
-                            type="text" placeholder="Search">
-                    </div>
-                    <div class="nav__data flex shrink-0 items-center gap-2 md:gap-4 relative">
-                        <div class="relative">
-                            <i class="fa-solid fa-bell text-[24px] text-blueColor md:text-[40px]"></i>
-                            <span
-                                class="absolute top-0 right-0 md:-top-[6px] h-4 w-4 md:text-[16px] md:h-7 md:w-7 rounded-full bg-[#F93C65] p-1 text-whiteColor text-[8px] flex items-center justify-center">6</span>
-                        </div>
-                        <div class="h-9 w-9 md:h-12 md:w-12 rounded-full nav__profile-img mb-1 ">
+<body class="bg-background dark:bg-background-dark">
+    <div class="min-h-screen lg:flex">
 
-                        </div>
-                                <div
-                                    class="dropdown 
-                                    absolute right-0 top-12 
-                                    z-30 mt-3 flex w-64 translate-y-1 
-                                    flex-col overflow-hidden rounded-xl 
-                                    border border-[#E6EBF2] bg-white p-2 
-                                    opacity-0 shadow-[0_16px_40px_rgba(18,22,60,0.18)] 
-                                    transition-all duration-200 pointer-events-none invisible 
-                                    dark:border-[#3A4558] dark:bg-[#273142] xl:top-14">
-                                    <div
-                                        class="user flex items-center gap-3 rounded-lg px-2 py-2 transition-colors duration-200 hover:bg-[#EEF4FF] dark:hover:bg-[#323D4E]">
-                                        <span
-                                            class="flex h-9 w-9 items-center justify-center rounded-full bg-[#EAF1FF] text-blueColor dark:bg-[#364359] dark:text-[#9AB7FF]">
-                                            <i class="fa-solid fa-circle-user text-[18px]"></i>
-                                        </span>
-                                        <div class="flex flex-col">
-                                            <p class="text-sm font-bold text-[#202224] dark:text-whiteColor">Alaa</p>
-                                            <p class="text-xs text-[#7C8798] dark:text-[#B0BAC9]">Administrator</p>
-                                        </div>
-                                    </div>
-                                    <div class="modes mt-1 flex items-center justify-between rounded-lg px-2 py-2">
-                                        <button id="computer" type="button"
-                                            class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-[#F4F7FD] text-[#5C6678] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#E4EDFF] hover:text-blueColor dark:bg-[#364359] dark:text-[#D7DEEA] dark:hover:bg-[#46546E]">
-                                            <i class="fa-solid fa-desktop text-[15px]"></i>
-                                        </button>
-                                        <button id="dark" type="button"
-                                            class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-[#F4F7FD] text-[#5C6678] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#E4EDFF] hover:text-blueColor dark:bg-[#364359] dark:text-[#D7DEEA] dark:hover:bg-[#46546E]">
-                                            <i class="fa-solid fa-moon text-[15px]"></i>
-                                        </button>
-                                        <button id="light" type="button"
-                                            class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-[#F4F7FD] text-[#5C6678] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#E4EDFF] hover:text-blueColor dark:bg-[#364359] dark:text-[#D7DEEA] dark:hover:bg-[#46546E]">
-                                            <i class="fa-solid fa-sun text-[15px]"></i>
-                                        </button>
-                                    </div>
-                                    <button type="button"
-                                        class="sign-out mt-1 flex items-center gap-3 rounded-lg px-2 py-2 text-left transition-colors duration-200 hover:bg-[#FFF0F3] dark:hover:bg-[#3C3340]">
-                                        <span
-                                            class="flex h-9 w-9 items-center justify-center rounded-full bg-[#FFE9EE] text-[#F93C65] dark:bg-[#4A3440]">
-                                            <i class="fa-solid fa-arrow-right-from-bracket text-[14px]"></i>
-                                        </span>
-                                        <p class="text-sm font-semibold text-[#B4233A] dark:text-[#FF8DA4]">Sign out</p>
-                                    </button>
-                                </div>
-                    </div>
-                </div>
+        <!-- Sidebar -->
+        <aside id="Menu" class="
+bg-surface dark:bg-background-sidebar
+w-[300px] h-full 
+overflow-y-auto shadow 
+z-50 hidden lg:block">
 
-
-                <div class="hidden w-full lg:block">
-                    <div class="flex w-full items-center justify-between gap-4 xl:gap-6">
-                        <div
-                            class="nav__searchbar flex w-full max-w-[520px] items-center gap-3 rounded-full bg-[#F5F6FA] px-4 py-3 dark:bg-[#323D4E]">
-                            <i class="fa-solid fa-magnifying-glass text-[#646464] dark:text-whiteColor"></i>
-                            <input
-                                class="w-full rounded-md bg-[#F5F6FA] text-sm outline-none placeholder:text-[#646464] dark:bg-[#323D4E] dark:text-whiteColor"
-                                type="text" placeholder="Search">
-                        </div>
-                        <div class="nav__data flex shrink-0 items-center gap-3 xl:gap-5">
-                            <div class="relative">
-                                <i class="fa-solid fa-bell cursor-pointer text-blueColor lg:text-[26px]"></i>
-                                <span
-                                    class="absolute top-0 right-0  lg:h-[18px] lg:w-[18px]  2xl:h-5 2xl:w-5 2xl:text-[12px]  rounded-full bg-[#F93C65] p-1 text-whiteColor text-[8px] flex items-center justify-center">6</span>
-                            </div>
-                            <div class="nav__data-lang relative hidden xl:flex">
-                                <button id="langToggle" type="button"
-                                    class="lang flex items-center gap-2 rounded-full px-2 py-1 transition-colors duration-200 hover:bg-[#EEF4FF] dark:hover:bg-[#323D4E]"
-                                    aria-label="Change language" aria-expanded="false">
-                                    <span class="flag overflow-hidden rounded-sm">
-                                        <img id="langimg" class="h-[24px] w-9" src="./assets/images/Flag.png" alt="Language flag">
-                                    </span>
-                                    <p id="selectedLang" class="text-sm text-[#646464] dark:text-whiteColor">English</p>
-                                    <i
-                                        class="lang-chevron fa-solid fa-angle-down text-[#646464] transition-transform duration-200 dark:text-whiteColor"></i>
-                                </button>
-
-                                <div id="langMenu"
-                                    class="lang-dropdown absolute right-0 top-11 z-30 flex w-40 translate-y-1 flex-col rounded-xl border border-[#E6EBF2] bg-white p-2 opacity-0 shadow-[0_12px_30px_rgba(18,22,60,0.14)] transition-all duration-200 pointer-events-none invisible dark:border-[#3A4558] dark:bg-[#273142]">
-                                    <button type="button" data-lang="English"
-                                        class="lang-option flex gap-2  rounded-lg px-3 py-2 text-left text-sm font-medium text-[#3C4658] transition-colors duration-200 hover:bg-[#EEF4FF] hover:text-blueColor dark:text-[#DDE6F3] dark:hover:bg-[#323D4E]">
-                                        <img class="h-[18px] w-6" src="/assets/images/Flag.png" alt="">
-                                        <span>English</span>
-                                    </button>
-                                    <button type="button" data-lang="Arabic"
-                                        class="lang-option flex gap-2  rounded-lg px-3 py-2 text-left text-sm font-medium text-[#3C4658] transition-colors duration-200 hover:bg-[#EEF4FF] hover:text-blueColor dark:text-[#DDE6F3] dark:hover:bg-[#323D4E]">
-                                        <img class="h-[18px] w-6 rounded" src="/assets/images/flag-arabic.png" alt="">
-                                        <span>Arabic</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="nav__data-profile relative flex cursor-pointer items-center gap-3">
-                                <div class="nav__profile-img mb-1 h-10 w-10 rounded-full xl:h-[44px] xl:w-[44px]"></div>
-                                <div class="hidden flex-col xl:flex">
-                                    <div class="name text-sm font-bold text-[#404040] dark:text-whiteColor">alaa</div>
-                                    <p class="text-sm font-semibold text-[#565656] dark:text-whiteColor">Admin</p>
-                                </div>
-                                <div class="hidden xl:block">
-                                    <i
-                                        class="profile-chevron fa-solid fa-angle-down flex h-7 w-7 items-center justify-center rounded-full border border-[#D9E1EE] text-[#646464] transition-all duration-300 ease-out dark:border-[#4A5568] dark:text-whiteColor"></i>
-                                </div>
-                                <div
-                                    class="dropdown 
-                                    absolute right-0 top-12 
-                                    z-30 mt-3 flex w-64 translate-y-1 
-                                    flex-col overflow-hidden rounded-xl 
-                                    border border-[#E6EBF2] bg-white p-2 
-                                    opacity-0 shadow-[0_16px_40px_rgba(18,22,60,0.18)] 
-                                    transition-all duration-200 pointer-events-none invisible 
-                                    dark:border-[#3A4558] dark:bg-[#273142] xl:top-14">
-                                    <div
-                                        class="user flex items-center gap-3 rounded-lg px-2 py-2 transition-colors duration-200 hover:bg-[#EEF4FF] dark:hover:bg-[#323D4E]">
-                                        <span
-                                            class="flex h-9 w-9 items-center justify-center rounded-full bg-[#EAF1FF] text-blueColor dark:bg-[#364359] dark:text-[#9AB7FF]">
-                                            <i class="fa-solid fa-circle-user text-[18px]"></i>
-                                        </span>
-                                        <div class="flex flex-col">
-                                            <p class="text-sm font-bold text-[#202224] dark:text-whiteColor">Alaa</p>
-                                            <p class="text-xs text-[#7C8798] dark:text-[#B0BAC9]">Administrator</p>
-                                        </div>
-                                    </div>
-                                    <div class="modes mt-1 flex items-center justify-between rounded-lg px-2 py-2">
-                                        <button id="computer" type="button"
-                                            class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-[#F4F7FD] text-[#5C6678] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#E4EDFF] hover:text-blueColor dark:bg-[#364359] dark:text-[#D7DEEA] dark:hover:bg-[#46546E]">
-                                            <i class="fa-solid fa-desktop text-[15px]"></i>
-                                        </button>
-                                        <button id="dark" type="button"
-                                            class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-[#F4F7FD] text-[#5C6678] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#E4EDFF] hover:text-blueColor dark:bg-[#364359] dark:text-[#D7DEEA] dark:hover:bg-[#46546E]">
-                                            <i class="fa-solid fa-moon text-[15px]"></i>
-                                        </button>
-                                        <button id="light" type="button"
-                                            class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-[#F4F7FD] text-[#5C6678] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#E4EDFF] hover:text-blueColor dark:bg-[#364359] dark:text-[#D7DEEA] dark:hover:bg-[#46546E]">
-                                            <i class="fa-solid fa-sun text-[15px]"></i>
-                                        </button>
-                                    </div>
-                                    <button type="button"
-                                        class="sign-out mt-1 flex items-center gap-3 rounded-lg px-2 py-2 text-left transition-colors duration-200 hover:bg-[#FFF0F3] dark:hover:bg-[#3C3340]">
-                                        <span
-                                            class="flex h-9 w-9 items-center justify-center rounded-full bg-[#FFE9EE] text-[#F93C65] dark:bg-[#4A3440]">
-                                            <i class="fa-solid fa-arrow-right-from-bracket text-[14px]"></i>
-                                        </span>
-                                        <p class="text-sm font-semibold text-[#B4233A] dark:text-[#FF8DA4]">Sign out</p>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="py-4 px-6 flex justify-center items-center">
+                <p class="text-primary-dark text-[30px] m-[9px] font-bold dark:text-white">
+                    <span class="text-primary">Dash</span>Stack
+                </p>
             </div>
-        </nav>
-    </header>
+
+            <ul class="py-4 space-y-4 text-[16px] text-text-primary font-semibold flex flex-col items-center ">
+                <li
+                    class="bg-primary rounded w-2/3 py-3 px-5 text-white h-auto tracking-[.3px]  dark:text-white  flex items-center first-item  ">
+                    <a href="#">Dashboard</a>
+                </li>
+                <li
+                    class="w-2/3 py-3 px-5 text-text-primary tracking-[.3px]   h-auto  dark:text-white  flex items-center hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                    <a href="#">Products</a>
+                </li>
+                <li
+                    class="w-2/3 py-3 px-5 text-text-primary tracking-[.3px]  h-auto  dark:text-white  flex items-center hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                    <a href="#">Favorites</a>
+                </li>
+                <li
+                    class="w-2/3 py-3 px-5 text-text-primary tracking-[.3px]  h-auto  dark:text-white  flex items-center hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                    <a href="#">Inbox</a>
+                </li>
+                <li
+                    class="w-2/3 py-3 px-5 text-text-primary tracking-[.3px]  h-auto  dark:text-white  flex items-center hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                    <a href="#">Order Lists</a>
+                </li>
+                <li
+                    class="w-2/3 py-3 px-5 text-text-primary tracking-[.3px]  h-auto  dark:text-white  flex items-center hover:bg-background  dark:hover:bg-background-dark rounded transition duration-75">
+                    <a href="#">Product Stock</a>
+                </li>
+                <li class="sidebar--group">
+                    <h3 class="sidebar--group__header">
+                        PAGES</h3>
+
+                    <ul
+                        class="p-0 w-full flex flex-col items-center space-y-4 text-[16px] text-text-primary font-semibold">
+                        <li
+                            class="w-2/3 py-3 px-5 text-text-primary tracking-[.3px] h-auto flex items-center dark:text-white justify-start  hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                            <a href="#">Pricing</a>
+                        </li>
+                        <li
+                            class="w-2/3 py-3 px-5 text-text-primary tracking-[.3px] h-auto flex items-center dark:text-white  justify-start hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                            <a href="#">Calender</a>
+                        </li>
+                        <li
+                            class="w-2/3 py-3 px-5 text-text-primary tracking-[.3px] h-auto flex items-center dark:text-white justify-start hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                            <a href="#">To-Do</a>
+                        </li>
+                        <li
+                            class="w-2/3 py-3 px-5 text-text-primary tracking-[.3px] h-auto flex items-center dark:text-white justify-start hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                            <a href="#">Contact</a>
+                        </li>
+                        <li
+                            class="w-2/3 py-3 px-5 text-text-primary tracking-[.3px] h-auto flex items-center dark:text-white justify-start hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                            <a href="#">Invoice</a>
+                        </li>
+                        <li
+                            class="w-2/3 py-3 px-5 text-text-primary tracking-[.3px] h-auto flex items-center dark:text-white justify-start hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                            <a href="#">UI Elements</a>
+                        </li>
+                        <li
+                            class="w-2/3 py-3 px-5 text-text-primary tracking-[.3px] h-auto flex items-center dark:text-white justify-start hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                            <a href="#">Team</a>
+                        </li>
+                        <li
+                            class="w-2/3 py-3 px-5 text-text-primary tracking-[.3px] h-auto flex items-center dark:text-white justify-start hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                            <a href="#">Table</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li
+                    class="w-2/3 pb-3 pt-3 px-5  tracking-[.3px] text-text-primary h-auto flex items-center dark:text-white justify-start hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                    <a href="#">Settings</a>
+                </li>
+                <li
+                    class="w-2/3 py-3 px-5 text-text-primary tracking-[.3px] h-auto flex items-center dark:text-white justify-start hover:bg-background rounded transition duration-75">
+                    <a href="#">Logout</a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Sidebar Mobile -->
+        <aside id="mobileMenu-mobile"
+            class="bg-surface dark:bg-background-sidebar fixed top-0 left-0 w-72 h-full  overflow-y-auto shadow  z-50 transform -translate-x-full transition-transform duration-300 flex flex-col items-center  lg:hidden">
+            <div class="p-4 flex justify-center items-center">
+                <p class="text-primary-dark text-2xl font-bold dark:text-white md:text-[32px]">
+                    <span class="text-primary">Dash</span>Stack
+                </p>
+            </div>
+            <ul
+                class="py-4 space-y-4 text-[12px]  md:text-[14px] text-text-primary font-semibold flex flex-col items-center w-full">
+                <li
+                    class="bg-primary rounded w-2/3 py-2 px-5 text-white h-auto  dark:text-white flex items-center  first-item before:top-[77px] before:w-[7px] before:h-[38px]">
+                    <a href="#">Dashboard</a>
+                </li>
+                <li
+                    class="w-2/3 py-2 px-5 text-text-primary    h-auto  dark:text-white flex items-center  hover:bg-background dark:hover:bg-background-dark rounded transition duration-75 ">
+                    <a href="#">Products</a>
+                </li>
+                <li
+                    class="w-2/3 py-2 px-5 text-text-primary   h-auto  dark:text-white flex items-center  hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                    <a href="#">Favorites</a>
+                </li>
+                <li
+                    class="w-2/3 py-2 px-5 text-text-primary   h-auto  dark:text-white flex items-center hover:bg-background dark:hover:bg-background-dark rounded transition duration-75 ">
+                    <a href="#">Inbox</a>
+                </li>
+                <li
+                    class="w-2/3 py-2 px-5 text-text-primary   h-auto  dark:text-white flex items-center  hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                    <a href="#">Order Lists</a>
+                </li>
+                <li
+                    class="w-2/3 py-2 px-5 text-text-primary   h-auto  dark:text-white flex items-center  hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                    <a href="#">Product Stock</a>
+                </li>
+                <li class="sidebar--group py-2">
+                    <h3 class="sidebar--group__header">
+                        PAGES</h3>
+                    <ul
+                        class="p-0 w-full flex flex-col items-center space-y-4 text-[12px] md:text-[14px] text-text-primary font-semibold">
+                        <li
+                            class="w-2/3 py-2 px-5 text-text-primary h-auto flex items-center dark:text-white   hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                            <a href="#">Pricing</a>
+                        </li>
+                        <li
+                            class="w-2/3 py-2 px-5 text-text-primary h-auto flex items-center dark:text-white   hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                            <a href="#">Calender</a>
+                        </li>
+                        <li
+                            class="w-2/3 py-2 px-5 text-text-primary h-auto flex items-center dark:text-white  hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                            <a href="#">To-Do</a>
+                        </li>
+                        <li
+                            class="w-2/3 py-2 px-5 text-text-primary h-auto flex items-center dark:text-white  hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                            <a href="#">Contact</a>
+                        </li>
+                        <li
+                            class="w-2/3 py-2 px-5 text-text-primary h-auto flex items-center dark:text-white  hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                            <a href="#">Invoice</a>
+                        </li>
+                        <li
+                            class="w-2/3 py-2 px-5 text-text-primary h-auto flex items-center dark:text-white  hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                            <a href="#">UI Elements</a>
+                        </li>
+                        <li
+                            class="w-2/3 py-2 px-5 text-text-primary h-auto flex items-center dark:text-white  hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                            <a href="#">Team</a>
+                        </li>
+                        <li
+                            class="w-2/3 py-2 px-5 text-text-primary h-auto flex items-center dark:text-white  hover:bg-background dark:hover:bg-background-dark rounded transition duration-75">
+                            <a href="#">Table</a>
+                        </li>
+                    </ul>
+                </li>
+                <li
+                    class="w-2/3 pb-3  px-5  text-text-primary h-auto flex items-center dark:text-white hover:bg-background dark:hover:bg-background-dark rounded transition duration-75 ">
+                    <a href="#">Settings</a>
+                </li>
+                <li
+                    class="w-2/3 py-2 px-5 text-text-primary h-auto flex items-center dark:text-white  hover:text-white  rounded transition duration-75">
+                    <a href="#">Logout</a>
+                </li>
+            </ul>
+        </aside>
+
+        <div class="min-w-0 flex-1">
+
+            <!-- Header -->
+            <header class="relative w-full bg-white py-4 dark:bg-background-sidebar ">
+
+                <nav>
+                    <div class="container">
+                        <div class="flex items-center gap-3 md:gap-5 lg:hidden">
+                            <div id="hamburger" class="nav__hamburger-icon flex items-center lg:hidden">
+                                <i class="fa-solid fa-bars text-[20px] md:text-[28px] dark:text-white"></i>
+                            </div>
+                            <div
+                                class="nav__searchbar mx-1 flex flex-1 items-center gap-2 rounded-full bg-background px-3 py-2 dark:bg-background-input">
+                                <i class="fa-solid fa-magnifying-glass text-text-muted dark:text-white"></i>
+                                <input
+                                    class="w-full rounded-md bg-background px-1 text-sm outline-none placeholder:text-text-muted dark:bg-background-input dark:text-white"
+                                    type="text" placeholder="Search">
+                            </div>
+                            <div class="nav__data flex shrink-0 items-center gap-2 md:gap-4">
+                                <div class="relative">
+                                    <i class="fa-solid fa-bell text-[24px] text-primary md:text-[40px]"></i>
+                                    <span
+                                        class="absolute right-0 top-0 flex h-4 w-4 items-center justify-center rounded-full bg-state-danger p-1 text-[8px] text-white md:-top-[6px] md:h-7 md:w-7 md:text-[16px]">6</span>
+                                </div>
+                                <div class="nav__profile-img mb-1 h-9 w-9 rounded-full md:h-12 md:w-12"></div>
+                            </div>
+                        </div>
+
+                        <div class="hidden w-full lg:block">
+                            <div class="flex w-full items-center justify-between gap-4 xl:gap-6">
+                                <div
+                                    class="nav__searchbar flex w-full max-w-[520px] items-center gap-3 rounded-full bg-background px-4 py-3 dark:bg-background-input">
+                                    <i class="fa-solid fa-magnifying-glass text-text-muted dark:text-white"></i>
+                                    <input
+                                        class="w-full rounded-md bg-background text-sm outline-none placeholder:text-text-muted dark:bg-background-input dark:text-white"
+                                        type="text" placeholder="Search">
+                                </div>
+                                <div class="nav__data flex shrink-0 items-center gap-3 xl:gap-5">
+                                    <div class="relative">
+                                        <i class="fa-solid fa-bell cursor-pointer text-primary lg:text-[26px]"></i>
+                                        <span
+                                            class="absolute right-0 top-0 flex items-center justify-center rounded-full bg-state-danger p-1 text-[8px] text-white lg:h-[18px] lg:w-[18px] 2xl:h-5 2xl:w-5 2xl:text-[12px]">6</span>
+                                    </div>
+                                    <div class="nav__data-lang relative hidden xl:flex">
+                                        <button id="langToggle" type="button"
+                                            class="lang flex items-center gap-2 rounded-full px-2 py-1 transition-colors duration-200 hover:bg-hover-light dark:hover:bg-background-input"
+                                            aria-label="Change language" aria-expanded="false">
+                                            <span class="flag overflow-hidden rounded-sm">
+                                                <img id="langimg" class="h-[24px] w-9" src="../assets/images/Flag.png"
+                                                    alt="Language flag">
+                                            </span>
+                                            <p id="selectedLang" class="text-sm text-text-muted dark:text-white">
+                                                English</p>
+                                            <i
+                                                class="lang-chevron fa-solid fa-angle-down text-text-muted transition-transform duration-200 dark:text-white"></i>
+                                        </button>
+
+                                        <div id="langMenu"
+                                            class="lang-dropdown absolute right-0 top-11 z-30 flex w-40 translate-y-1 flex-col rounded-xl border border-border bg-white p-2 opacity-0 shadow-[0_12px_30px_rgba(18,22,60,0.14)] transition-all duration-200 pointer-events-none invisible dark:border-border-dark dark:bg-background-sidebar">
+                                            <button type="button" data-lang="English"
+                                                class="lang-option flex gap-2  rounded-lg px-3 py-2 text-left text-sm font-medium text-text-accent transition-colors duration-200 hover:bg-hover-light hover:text-primary dark:text-text-inverse dark:hover:bg-background-input">
+                                                <img class="h-[18px] w-6" src="/assets/images/Flag.png" alt="">
+                                                <span>English</span>
+                                            </button>
+                                            <button type="button" data-lang="Arabic"
+                                                class="lang-option flex gap-2  rounded-lg px-3 py-2 text-left text-sm font-medium text-text-accent transition-colors duration-200 hover:bg-hover-light hover:text-primary dark:text-text-inverse dark:hover:bg-background-input">
+                                                <img class="h-[18px] w-6 rounded" src="/assets/images/flag-arabic.png"
+                                                    alt="">
+                                                <span>Arabic</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="nav__data-profile relative flex cursor-pointer items-center gap-3">
+                                        <div
+                                            class="nav__profile-img mb-1 h-10 w-10 rounded-full xl:h-[44px] xl:w-[44px]">
+                                        </div>
+                                        <div class="hidden flex-col xl:flex">
+                                            <div class="name text-sm font-bold text-text-title dark:text-white">alaa
+                                            </div>
+                                            <p class="text-sm font-semibold text-text-soft dark:text-white">Admin
+                                            </p>
+                                        </div>
+                                        <div class="hidden xl:block">
+                                            <i
+                                                class="profile-chevron fa-solid fa-angle-down flex h-7 w-7 items-center justify-center rounded-full border border-border-light text-text-muted transition-all duration-300 ease-out dark:border-border-darkSoft dark:text-white"></i>
+                                        </div>
+                                        <div
+                                            class="dropdown invisible pointer-events-none absolute right-0 top-12 z-30 mt-3 flex w-64 translate-y-1 flex-col overflow-hidden rounded-xl border border-border bg-white p-2 opacity-0 shadow-[0_16px_40px_rgba(18,22,60,0.18)] transition-all duration-200 dark:border-border-dark dark:bg-background-sidebar xl:top-14">
+                                            <div
+                                                class="user flex items-center gap-3 rounded-lg px-2 py-2 transition-colors duration-200 hover:bg-hover-light dark:hover:bg-background-input">
+                                                <span
+                                                    class="flex h-9 w-9 items-center justify-center rounded-full bg-surface-muted text-primary dark:bg-background-card dark:text-text-brandLight">
+                                                    <i class="fa-solid fa-circle-user text-[18px]"></i>
+                                                </span>
+                                                <div class="flex flex-col">
+                                                    <p class="text-sm font-bold text-text-primary dark:text-white">
+                                                        Alaa</p>
+                                                    <p class="text-xs text-text-light dark:text-text-lighter">
+                                                        Administrator
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="modes mt-1 flex items-center justify-between rounded-lg px-2 py-2">
+                                                <button id="computer" type="button"
+                                                    class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                                    <i class="fa-solid fa-desktop text-[15px]"></i>
+                                                </button>
+                                                <button id="dark" type="button"
+                                                    class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                                    <i class="fa-solid fa-moon text-[15px]"></i>
+                                                </button>
+                                                <button id="light" type="button"
+                                                    class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                                    <i class="fa-solid fa-sun text-[15px]"></i>
+                                                </button>
+                                            </div>
+                                            <button type="button"
+                                                class="sign-out mt-1 flex items-center gap-3 rounded-lg px-2 py-2 text-left transition-colors duration-200 hover:bg-state-dangerHover dark:hover:bg-state-dangerHoverDark">
+                                                <span
+                                                    class="flex h-9 w-9 items-center justify-center rounded-full bg-state-dangerSoft text-state-danger dark:bg-state-dangerSoftDark">
+                                                    <i class="fa-solid fa-arrow-right-from-bracket text-[14px]"></i>
+                                                </span>
+                                                <p
+                                                    class="text-sm font-semibold text-state-dangerText dark:text-state-dangerLight">
+                                                    Sign
+                                                    out</p>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+        </div>
+    </div>
 
     <script src="./src/js/main.js"></script>
 </body>
