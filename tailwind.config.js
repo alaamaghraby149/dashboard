@@ -40,6 +40,7 @@ module.exports = {
           order: "#FEC53D",
           sales: "#4AD991",
           pending: "#FF9066",
+          gray: "#2B3034"
         },
 
         text: {
@@ -68,6 +69,7 @@ module.exports = {
           light: "#D9E1EE",
           dark: "#3A4558",
           darkSoft: "#4A5568",
+          gray: "#2B3034"
         },
 
         state: {

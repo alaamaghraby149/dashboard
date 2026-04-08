@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/alaamaghraby149/mega-mart/issues"
   },
-  "homepage": "https://github.com/alaamaghraby149/mega-mart#readme"
+  "homepage": "https://github.com/alaamaghraby149/mega-mart#readme",
+  "dependencies": {
+    "apexcharts": "^5.10.5"
+  }
 }

@@ -1,5 +1,8 @@
 /*======================== dropdown ========================*/
 const dropdown = document.querySelector(".dropdown");
+const dropdownMonth = document.getElementById('dropdownMenu')
+const monthBtn = document.getElementById('monthBtn')
+let month = document.querySelectorAll('.month')
 const navDataProfile = document.querySelector(".nav__data-profile");
 const navData = document.querySelector(".nav__data");
 const navDataLang = document.querySelector(".nav__data-lang");
@@ -7,11 +10,17 @@ const langToggle = document.getElementById("langToggle");
 const selectedLang = document.getElementById("selectedLang");
 const langOptions = document.querySelectorAll(".lang-option");
 const langImg = document.getElementById("langimg");
-// const navDataProfileImage = document.querySelector('.nav__data-profile-img')
+
+/*======================== dropdown functions ========================*/
 function openDropdown() {
   if (!navDataProfile) return;
   navDataProfile.classList.toggle("is-open");
   navData.classList.toggle("is-open");
+}
+
+function openDropDownMonth() {
+  if (!dropdownMonth) return;
+  dropdownMonth.classList.toggle("hidden")
 }
 
 function toggleLangDropdown() {
@@ -24,6 +33,11 @@ function closeLangDropdown() {
   navDataLang.classList.remove("is-open");
 }
 
+function closeDropDownMonth() {
+  dropdownMonth.classList.add("hidden")
+}
+
+/*======================== dropdown event listeners ========================*/
 if (navDataProfile && dropdown) {
   navDataProfile.addEventListener("click", (event) => {
     event.stopPropagation();
@@ -57,13 +71,8 @@ if (navDataLang && langToggle) {
       const lang = event.currentTarget.dataset.lang;
       if (selectedLang && lang) {
         selectedLang.textContent = lang;
-        if (lang == "Arabic") {
-          langImg.src = "./assets/images/Flag-arabic.png";
-        } else {
-          langImg.src = "./assets/images/Flag.png";
-        }
+        langImg.src = lang === "Arabic" ? "./assets/images/Flag-arabic.png" : "./assets/images/Flag.png";
       }
-
       closeLangDropdown();
     });
   });
@@ -74,25 +83,46 @@ if (navDataLang && langToggle) {
     }
   });
 }
-// navDataProfileImage.addEventListener('click' , openDropdown)
-/*======================== mode ========================*/
+
+monthBtn.addEventListener('click', openDropDownMonth)
+month.forEach((e) => {
+  e.addEventListener('click', (e) => {
+    let selectedMonth = e.currentTarget.textContent
+    let monthText = document.getElementById('monthText')
+    monthText.textContent = selectedMonth
+  })
+})
+document.addEventListener('click', function (e) {
+  if (!dropdownMonth.classList.contains('hidden')) {
+    if (!dropdownMonth.contains(e.target) && !monthBtn.contains(e.target)) {
+      closeDropDownMonth();
+    }
+  }
+});
+window.addEventListener('load', closeDropDownMonth)
+
+/*======================== theme ========================*/
 const computerBtn = document.getElementById("computer");
 const dark = document.getElementById("dark");
 const light = document.getElementById("light");
 const themeButtons = [computerBtn, dark, light].filter(Boolean);
-
 const html = document.documentElement;
 
 function setActiveThemeButton(mode) {
   if (!themeButtons.length) return;
-
-  themeButtons.forEach((button) => {
-    button.classList.remove("is-active");
-  });
-
+  themeButtons.forEach((button) => button.classList.remove("is-active"));
   if (mode === "dark" && dark) dark.classList.add("is-active");
   if (mode === "light" && light) light.classList.add("is-active");
   if (mode === "system" && computerBtn) computerBtn.classList.add("is-active");
+}
+
+function applySystemTheme() {
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    html.classList.add("dark");
+  } else {
+    html.classList.remove("dark");
+  }
+  updateChartColors();
 }
 
 function lightMode() {
@@ -101,6 +131,7 @@ function lightMode() {
     html.classList.remove("dark");
     localStorage.setItem("theme", "light");
     setActiveThemeButton("light");
+    updateChartColors();
   });
 }
 
@@ -110,15 +141,10 @@ function darkMode() {
     html.classList.add("dark");
     localStorage.setItem("theme", "dark");
     setActiveThemeButton("dark");
+    updateChartColors();
   });
 }
-function applySystemTheme() {
-  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    html.classList.add("dark");
-  } else {
-    html.classList.remove("dark");
-  }
-}
+
 function systemMode() {
   if (!computerBtn) return;
   computerBtn.addEventListener("click", () => {
@@ -127,16 +153,14 @@ function systemMode() {
     setActiveThemeButton("system");
   });
 
-  // Only react to OS theme changes when user is in system mode.
-  window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", () => {
-      if (!localStorage.getItem("theme")) {
-        applySystemTheme();
-        setActiveThemeButton("system");
-      }
-    });
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+    if (!localStorage.getItem("theme")) {
+      applySystemTheme();
+      setActiveThemeButton("system");
+    }
+  });
 }
+
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme === "dark") {
   html.classList.add("dark");
@@ -152,28 +176,95 @@ if (savedTheme === "dark") {
 lightMode();
 darkMode();
 systemMode();
-/*============= OPEN AND CLOSE MENU =============*/
+
+/*======================== mobile menu ========================*/
 const hamburger = document.getElementById('hamburger')
 const mobileMenu = document.getElementById('mobileMenu-mobile')
-// const closeMenuBtn = document.getElementById('closeMenu')
 const navProfileIcon = document.querySelectorAll('.nav__profile')
-function openMenu(){
-    mobileMenu.classList.remove('-translate-x-full');
-    mobileMenu.classList.add('translate-x-0');
+
+function openMenu() {
+  mobileMenu.classList.remove('-translate-x-full');
+  mobileMenu.classList.add('translate-x-0');
 }
-function closeMenu(){
-    mobileMenu.classList.remove('translate-x-0');
-    mobileMenu.classList.add('-translate-x-full');
+function closeMenu() {
+  mobileMenu.classList.remove('translate-x-0');
+  mobileMenu.classList.add('-translate-x-full');
 }
-hamburger.addEventListener('click',openMenu)
-// closeMenuBtn.addEventListener('click',closeMenu)
-navProfileIcon.forEach(icon=>{
-    icon.addEventListener('click',openProfileDetails)
-})
+hamburger.addEventListener('click', openMenu)
+
 document.addEventListener('click', function (e) {
-    if (!mobileMenu.classList.contains('-translate-x-full')) {
-        if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
-            closeMenu();
-        }
+  if (!mobileMenu.classList.contains('-translate-x-full')) {
+    if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+      closeMenu();
     }
+  }
 });
+
+/*======================== chart ========================*/
+var options = {
+  series: [{
+    data: [4, 3, 10, 9, 29, 19, 22, 9, 12, 7, 19, 5, 13, 9, 17, 2, 7, 5]
+  }],
+  chart: {
+    type: 'line',
+    height: 444,
+    width: "100%",
+    toolbar: {
+      show: false
+    },
+    zoom: {
+      enabled: false
+    }
+  },
+  stroke: {
+    width: 5,
+    curve: 'smooth',
+
+  },
+  
+  grid: {
+    show: false,
+    padding: {
+      left: 0,
+      right: 0
+    }
+  },
+  xaxis: {
+    type: 'datetime',
+    categories: [
+      '1/11/2000', '2/11/2000', '3/11/2000', '4/11/2000', '5/11/2000',
+      '6/11/2000', '7/11/2000', '8/11/2000', '9/11/2000', '10/11/2000',
+      '11/11/2000', '12/11/2000', '1/11/2001', '2/11/2001', '3/11/2001',
+      '4/11/2001', '5/11/2001', '6/11/2001'
+    ],
+    tickAmount: 10,
+    labels: {
+      style: { colors: [] },
+      formatter: function (value, timestamp, opts) {
+        return opts.dateFormatter(new Date(timestamp), 'dd MMM');
+      }
+    }
+  },
+  yaxis: { labels: { style: { colors: [] } }, show: true },
+  fill: {
+    type: 'gradient',
+    gradient: { shade: 'dark', gradientToColors: ['#FDD835'], shadeIntensity: 1, type: 'horizontal', opacityFrom: 1, opacityTo: 1, stops: [0, 100] }
+  }
+};
+
+var chart = new ApexCharts(document.querySelector("#chart"), options);
+chart.render().then(() => {
+  updateChartColors();  
+});
+
+/*======================== update chart colors ========================*/
+function updateChartColors() {
+  if (!chart) return;
+  const isDarkMode = html.classList.contains('dark');
+  chart.updateOptions({
+    xaxis: { labels: { style: { colors: isDarkMode ? '#FFFFFF' : '#000000' } } },
+    yaxis: { labels: { style: { colors: isDarkMode ? '#FFFFFF' : '#000000' } } }
+  });
+}
+
+updateChartColors();
