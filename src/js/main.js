@@ -249,7 +249,47 @@ var options = {
   fill: {
     type: 'gradient',
     gradient: { shade: 'dark', gradientToColors: ['#FDD835'], shadeIntensity: 1, type: 'horizontal', opacityFrom: 1, opacityTo: 1, stops: [0, 100] }
+  },
+  responsive: [
+  {
+    breakpoint: 1024,
+    options: {
+      chart: {
+        height: 350
+      },
+      stroke: {
+        width: 3
+      },
+      xaxis: {
+        tickAmount: 5,
+        labels: {
+          formatter: function (value, timestamp, opts) {
+            return opts.dateFormatter(new Date(timestamp), 'dd MMM');
+          }
+        }
+      }
+    }
+  },
+  {
+    breakpoint: 768,
+    options: {
+      chart: {
+        height: 280
+      },
+      stroke: {
+        width: 2
+      },
+      xaxis: {
+        tickAmount: 3,
+        labels: {
+          formatter: function (value, timestamp, opts) {
+            return opts.dateFormatter(new Date(timestamp), 'dd MMM');
+          }
+        }
+      }
+    }
   }
+]
 };
 
 var chart = new ApexCharts(document.querySelector("#chart"), options);
