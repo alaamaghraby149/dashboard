@@ -1,8 +1,5 @@
 /*======================== dropdown ========================*/
 const dropdown = document.querySelector(".dropdown");
-const dropdownMonth = document.getElementById('dropdownMenu')
-const monthBtn = document.getElementById('monthBtn')
-let month = document.querySelectorAll('.month')
 const navDataProfile = document.querySelector(".nav__data-profile");
 const navData = document.querySelector(".nav__data");
 const navDataLang = document.querySelector(".nav__data-lang");
@@ -11,16 +8,70 @@ const selectedLang = document.getElementById("selectedLang");
 const langOptions = document.querySelectorAll(".lang-option");
 const langImg = document.getElementById("langimg");
 
+/*======================== dropdown month ========================*/
+const dropdownMonth = document.querySelectorAll(".dropdownMenu"); //ul
+const monthBtn = document.querySelectorAll(".monthBtn"); //button
+let months = document.querySelectorAll(".month"); //jan,feb...etc //li
+// let monthText = document.querySelectorAll('.monthText')
+
+function openDropDownMonth(e) {
+  e.stopPropagation();
+  if (!dropdownMonth) return;
+
+  const btn = e.currentTarget; //btn
+  const menu = btn.parentElement.querySelector(".dropdownMenu"); //ul
+
+  dropdownMonth.forEach((item) => {
+    if (item !== menu) {
+      item.classList.add("hidden");
+    }
+  });
+
+  if (menu) {
+    menu.classList.toggle("hidden");
+  }
+}
+function closeDropDownMonth() {
+  dropdownMonth.forEach((ul) => {
+    ul.classList.add("hidden");
+  });
+}
+monthBtn.forEach((btn) => {
+  btn.addEventListener("click", openDropDownMonth);
+});
+months.forEach((month) => {
+  month.addEventListener("click", changeTextContent);
+});
+
+function changeTextContent(e) {
+  e.stopPropagation();
+
+  let selectedMonth = e.currentTarget.textContent;
+  let parent = e.currentTarget.closest(".title");
+  let text = parent.querySelector(".monthText");
+  text.textContent = selectedMonth;
+  closeDropDownMonth();
+}
+
+document.addEventListener("click", function (e) {
+  dropdownMonth.forEach((ul) => {
+    if (!ul.classList.contains("hidden")) {
+      monthBtn.forEach((btn) => {
+        if (!ul.contains(e.target) && !btn.contains(e.target)) {
+          closeDropDownMonth();
+        }
+      });
+    }
+  });
+});
+
+window.addEventListener("load", closeDropDownMonth);
+
 /*======================== dropdown functions ========================*/
 function openDropdown() {
   if (!navDataProfile) return;
   navDataProfile.classList.toggle("is-open");
   navData.classList.toggle("is-open");
-}
-
-function openDropDownMonth() {
-  if (!dropdownMonth) return;
-  dropdownMonth.classList.toggle("hidden")
 }
 
 function toggleLangDropdown() {
@@ -31,10 +82,6 @@ function toggleLangDropdown() {
 function closeLangDropdown() {
   if (!navDataLang) return;
   navDataLang.classList.remove("is-open");
-}
-
-function closeDropDownMonth() {
-  dropdownMonth.classList.add("hidden")
 }
 
 /*======================== dropdown event listeners ========================*/
@@ -71,7 +118,10 @@ if (navDataLang && langToggle) {
       const lang = event.currentTarget.dataset.lang;
       if (selectedLang && lang) {
         selectedLang.textContent = lang;
-        langImg.src = lang === "Arabic" ? "./assets/images/Flag-arabic.png" : "./assets/images/Flag.png";
+        langImg.src =
+          lang === "Arabic"
+            ? "./assets/images/Flag-arabic.png"
+            : "./assets/images/Flag.png";
       }
       closeLangDropdown();
     });
@@ -83,23 +133,6 @@ if (navDataLang && langToggle) {
     }
   });
 }
-
-monthBtn.addEventListener('click', openDropDownMonth)
-month.forEach((e) => {
-  e.addEventListener('click', (e) => {
-    let selectedMonth = e.currentTarget.textContent
-    let monthText = document.getElementById('monthText')
-    monthText.textContent = selectedMonth
-  })
-})
-document.addEventListener('click', function (e) {
-  if (!dropdownMonth.classList.contains('hidden')) {
-    if (!dropdownMonth.contains(e.target) && !monthBtn.contains(e.target)) {
-      closeDropDownMonth();
-    }
-  }
-});
-window.addEventListener('load', closeDropDownMonth)
 
 /*======================== theme ========================*/
 const computerBtn = document.getElementById("computer");
@@ -153,12 +186,14 @@ function systemMode() {
     setActiveThemeButton("system");
   });
 
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
-    if (!localStorage.getItem("theme")) {
-      applySystemTheme();
-      setActiveThemeButton("system");
-    }
-  });
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", () => {
+      if (!localStorage.getItem("theme")) {
+        applySystemTheme();
+        setActiveThemeButton("system");
+      }
+    });
 }
 
 const savedTheme = localStorage.getItem("theme");
@@ -178,22 +213,22 @@ darkMode();
 systemMode();
 
 /*======================== mobile menu ========================*/
-const hamburger = document.getElementById('hamburger')
-const mobileMenu = document.getElementById('mobileMenu-mobile')
-const navProfileIcon = document.querySelectorAll('.nav__profile')
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobileMenu-mobile");
+const navProfileIcon = document.querySelectorAll(".nav__profile");
 
 function openMenu() {
-  mobileMenu.classList.remove('-translate-x-full');
-  mobileMenu.classList.add('translate-x-0');
+  mobileMenu.classList.remove("-translate-x-full");
+  mobileMenu.classList.add("translate-x-0");
 }
 function closeMenu() {
-  mobileMenu.classList.remove('translate-x-0');
-  mobileMenu.classList.add('-translate-x-full');
+  mobileMenu.classList.remove("translate-x-0");
+  mobileMenu.classList.add("-translate-x-full");
 }
-hamburger.addEventListener('click', openMenu)
+hamburger.addEventListener("click", openMenu);
 
-document.addEventListener('click', function (e) {
-  if (!mobileMenu.classList.contains('-translate-x-full')) {
+document.addEventListener("click", function (e) {
+  if (!mobileMenu.classList.contains("-translate-x-full")) {
     if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
       closeMenu();
     }
@@ -202,68 +237,95 @@ document.addEventListener('click', function (e) {
 
 /*======================== chart ========================*/
 var options = {
-  series: [{
-    data: [4, 3, 10, 9, 29, 19, 22, 9, 12, 7, 19, 5, 13, 9, 17, 2, 7, 5]
-  }],
+  series: [
+    {
+      data: [4, 3, 10, 9, 29, 19, 22, 9, 12, 7, 19, 5, 13, 9, 17, 2, 7, 5],
+    },
+  ],
   chart: {
-    type: 'line',
+    type: "line",
     height: 444,
     width: "100%",
     toolbar: {
-      show: false
+      show: false,
     },
     zoom: {
-      enabled: false
-    }
+      enabled: false,
+    },
   },
   stroke: {
     width: 5,
-    curve: 'smooth',
-
+    curve: "smooth",
   },
-  
+
   grid: {
     show: false,
     padding: {
       left: 0,
-      right: 0
-    }
+      right: 0,
+    },
   },
   xaxis: {
-    type: 'datetime',
+    type: "datetime",
     categories: [
-      '1/11/2000', '2/11/2000', '3/11/2000', '4/11/2000', '5/11/2000',
-      '6/11/2000', '7/11/2000', '8/11/2000', '9/11/2000', '10/11/2000',
-      '11/11/2000', '12/11/2000', '1/11/2001', '2/11/2001', '3/11/2001',
-      '4/11/2001', '5/11/2001', '6/11/2001'
+      "1/11/2000",
+      "2/11/2000",
+      "3/11/2000",
+      "4/11/2000",
+      "5/11/2000",
+      "6/11/2000",
+      "7/11/2000",
+      "8/11/2000",
+      "9/11/2000",
+      "10/11/2000",
+      "11/11/2000",
+      "12/11/2000",
+      "1/11/2001",
+      "2/11/2001",
+      "3/11/2001",
+      "4/11/2001",
+      "5/11/2001",
+      "6/11/2001",
     ],
     tickAmount: 10,
     labels: {
       style: { colors: [] },
       formatter: function (value, timestamp, opts) {
-        return opts.dateFormatter(new Date(timestamp), 'dd MMM');
-      }
-    }
+        return opts.dateFormatter(new Date(timestamp), "dd MMM");
+      },
+    },
   },
   yaxis: { labels: { style: { colors: [] } }, show: true },
   fill: {
-    type: 'gradient',
-    gradient: { shade: 'dark', gradientToColors: ['#FDD835'], shadeIntensity: 1, type: 'horizontal', opacityFrom: 1, opacityTo: 1, stops: [0, 100] }
-  }
+    type: "gradient",
+    gradient: {
+      shade: "dark",
+      gradientToColors: ["#FDD835"],
+      shadeIntensity: 1,
+      type: "horizontal",
+      opacityFrom: 1,
+      opacityTo: 1,
+      stops: [0, 100],
+    },
+  },
 };
 
 var chart = new ApexCharts(document.querySelector("#chart"), options);
 chart.render().then(() => {
-  updateChartColors();  
+  updateChartColors();
 });
 
 /*======================== update chart colors ========================*/
 function updateChartColors() {
   if (!chart) return;
-  const isDarkMode = html.classList.contains('dark');
+  const isDarkMode = html.classList.contains("dark");
   chart.updateOptions({
-    xaxis: { labels: { style: { colors: isDarkMode ? '#FFFFFF' : '#000000' } } },
-    yaxis: { labels: { style: { colors: isDarkMode ? '#FFFFFF' : '#000000' } } }
+    xaxis: {
+      labels: { style: { colors: isDarkMode ? "#FFFFFF" : "#000000" } },
+    },
+    yaxis: {
+      labels: { style: { colors: isDarkMode ? "#FFFFFF" : "#000000" } },
+    },
   });
 }
 
