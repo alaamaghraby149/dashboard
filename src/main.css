@@ -3,23 +3,39 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face{
-  font-family: 'Nunito Sans';
+@font-face {
+  font-family: "Nunito Sans";
 }
 
-#mobileMenu-mobile .menu-item-sm{
-  @apply py-2 px-3 
+::-webkit-scrollbar {
+  @apply w-[8px];
 }
-.menu-item{
-  @apply w-2/3  text-text-primary  cursor-pointer font-bold  h-auto  dark:text-white flex items-center  hover:bg-background dark:hover:bg-background-dark rounded transition duration-75
 
+::-webkit-scrollbar-track {
+  @apply dark:text-background-sidebar;
 }
-#Menu .menu-item-lg{
-  @apply  py-3 px-5  tracking-[.3px]         
+
+::-webkit-scrollbar-thumb {
+  @apply dark:bg-background-input bg-gray-300;
 }
-.menu-item-sm.is-active,.menu-item-lg.is-active {
-  @apply bg-primary  !text-white  hover:bg-primary
+
+#mobileMenu-mobile .menu-item-sm {
+  @apply py-2 px-3;
 }
+
+.menu-item {
+  @apply w-2/3  text-text-primary  cursor-pointer font-bold  h-auto  dark:text-white flex items-center  hover:bg-background dark:hover:bg-background-dark rounded transition duration-75;
+}
+
+#Menu .menu-item-lg {
+  @apply py-3 px-5  tracking-[.3px];
+}
+
+.menu-item-sm.is-active,
+.menu-item-lg.is-active {
+  @apply bg-primary  !text-white  hover:bg-primary;
+}
+
 .first-item::before {
   content: "";
   position: absolute;
@@ -104,41 +120,58 @@
   @apply text-text-primary opacity-50 text-left  mb-4 self-start pl-[16.5%]  dark:text-white;
 }
 
-.card{
+.card {
   @apply bg-white rounded-[15px] p-5 shadow hover:scale-105 transition ease-in duration-300 
-  dark:bg-background-sidebar dark:text-white
-}
-.card__info{
-  @apply flex items-center justify-between
-}
-.card__info-total{
-  @apply flex flex-col gap-3
-}
-.card__info-total-name{
-  @apply  text-[1rem] font-semibold text-text-primary opacity-50 dark:text-white 
-}
-.card__info-total-number{
-  @apply font-bold xl:text-[28px] md:text-[20px] lg:text-[24px] text-[18px];
-}
-.card__details{
-  @apply mt-[29px] flex gap-4 items-center ;
-}
-.card:hover .icon i{
-  @apply rotate-12 transition ease-in-out duration-150
+  dark:bg-background-sidebar dark:text-white;
 }
 
-#chart{
+.card__info {
+  @apply flex items-center justify-between;
+}
+
+.card__info-total {
+  @apply flex flex-col gap-3;
+}
+
+.card__info-total-name {
+  @apply text-[1rem] font-semibold text-text-primary opacity-50 dark:text-white;
+}
+
+.card__info-total-number {
+  @apply font-bold xl:text-[28px] md:text-[20px] lg:text-[24px] text-[18px];
+}
+
+.card__details {
+  @apply mt-[29px] flex gap-4 items-center;
+}
+
+.card:hover .icon i {
+  @apply rotate-12 transition ease-in-out duration-150;
+}
+
+#chart {
   width: 100%;
   /* height: 500px; */
   outline: none !important;
-  
 }
 
-.month{
-  @apply px-1 py-1 text-[13px] text-center lg:px-4 lg:py-2 hover:bg-gray-100 cursor-pointer dark:hover:text-background-sidebar
+.month {
+  @apply px-2 py-2 text-[13px] text-center lg:px-4 lg:py-2 hover:bg-gray-100 cursor-pointer dark:hover:text-background-sidebar;
 }
 
 #chart *:focus,
 #chart *:active {
   outline: none !important;
+}
+
+table .table-head {
+  @apply w-full  flex items-center justify-start shrink-0 whitespace-nowrap dark:text-white;
+}
+
+table .table-body-row {
+  @apply font-semibold text-text-primary opacity-60 pb-[28px] pt-[24px] pl-[24px]  lg:pr-[24px] xl:pr-0  lg:text-[14px] text-[10px]  text-left whitespace-nowrap dark:text-white dark:opacity-100;
+}
+
+.button-dark {
+  @apply text-[10px] md:text-[14px] py-[4px] px-[7px] md:py-[6px] md:px-[16px] dark:bg-background-tableheadDark text-gray-400 dark:text-white border border-gray-300 dark:outline-none dark:border-none rounded  transition ease-in duration-100;
 }

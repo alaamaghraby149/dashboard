@@ -17,7 +17,7 @@
         <!-- Sidebar -->
         <aside id="Menu" class="
 bg-surface dark:bg-background-sidebar
-w-[300px] h-full 
+w-[300px] h-full fixed top-0 left-0
 overflow-y-auto shadow 
 z-50 hidden lg:block">
 
@@ -97,7 +97,7 @@ z-50 hidden lg:block">
                 </p>
             </div>
             <ul
-                class="py-4 space-y-4 text-[12px]  md:text-[14px] text-text-primary font-semibold flex flex-col items-center w-full">
+                class="py-4 space-y-4 text-[12px]  md:lg: text-text-primary font-semibold flex flex-col items-center w-full">
                 <li
                     class="menu-item-sm menu-item is-active  first-item before:top-[77px] before:w-[7px] before:h-[38px]">
                     <a href="#">Dashboard</a>
@@ -157,7 +157,7 @@ z-50 hidden lg:block">
             </ul>
         </aside>
 
-        <div class="min-w-0 flex-1">
+        <div class="min-w-0 flex-1 main-content lg:pl-[300px]  ">
 
             <!-- Header -->
             <header class="relative w-full bg-white py-4 dark:bg-background-sidebar ">
@@ -296,11 +296,11 @@ z-50 hidden lg:block">
             </header>
 
             <!-- Content -->
-            <main class=" p-4">
+            <main class=" p-4 ">
 
-                <!-- Statistics Cards -->
                 <div class="container">
                     <h3 class="lg:text-[32px] text-[20px] md:text-[24px] font-bold dark:text-white">Dashboard</h3>
+                    <!-- Statistics Cards -->
                     <div class="info lg:mt-7 mt-3">
                         <div class="cards grid grid-cols-1 gap-3 lg:gap-4
                         md:grid-cols-2 xl:grid-cols-4">
@@ -379,33 +379,21 @@ z-50 hidden lg:block">
                                 </div>
                             </div>
                         </div>
-
+                        <!-- Chart -->
                         <div
-                            class="lg:my-[30px] md:my-[24px] my-[16px] bg-white dark:bg-background-sidebar dark:text-white  w-full pr-5 relative   shadow rounded-lg">
+                            class="lg:my-[30px] md:my-[24px] my-[16px] bg-white dark:bg-background-sidebar dark:text-white  w-full p-[36px] relative  shadow rounded-lg">
                             <div class="title 
-                                pt-[37px] pl-[32px]
-                                flex flex-col items-center  gap-3 
+                                flex justify-between items-center gap-3 
                                 md:flex-row md:items-center md:justify-between ">
-                                <p class="text-[20px] lg:text-[24px] font-bold">Sale Details</p>
-                                <button id="monthBtn"
-                                    class=" dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-background-sidebar
-                                    text-[10px]
-                                    md:text-[12px] gap-3
-                                    flex items-center lg:gap-4
-                                    py-[7px] pl-[14px] pr-[14px]
-                                    md:py-[9px] md:pl-[16px] md:pr-[16px] 
-                                    rounded border border-border-gray 
-                                    text-text-secondary 
-                                    opacity-50 hover:bg-background-gray hover:text-white transition ease-in duration-100">
-                                    <span id="monthText">October</span>
+                                <p class="text-[14px] shrink-0 md:text-[18px] lg:text-[24px] font-bold ">Sales Details
+                                </p>
+                                <button class="button-dark monthBtn">
+                                    <span class="monthText">October</span>
                                     <i class="fa-solid fa-angle-down "></i>
                                 </button>
-                                <ul id="dropdownMenu" class=" dark:bg-background-sidebar 
-                                    right-15 top-28
-            absolute md:right-3 md:top-20            md:w-[120px] w-[100px]
-            bg-white shadow-md rounded
-            z-50">
-
+                                <ul
+                                    class="dropdownMenu dark:bg-background-sidebar text-xs
+                                absolute right-[66px] top-28 md:right-10 md:top-20 md:w-[120px] w-[100px] bg-white shadow-md rounded z-50">
                                     <li class="month ">January</li>
                                     <li class="month">February</li>
                                     <li class="month ">March</li>
@@ -420,8 +408,165 @@ z-50 hidden lg:block">
                                     <li class="month ">December</li>
                                 </ul>
                             </div>
-                            <div id="chart" class="h-auto" ></div>
+
+                            <!-- Chart Content -->
+                            <div id="chart" class="pt-[51px]"></div>
                         </div>
+
+                        <div class="lg:my-[30px] md:my-[24px] my-[16px] px-[32px]
+                        bg-white dark:bg-background-sidebar dark:text-white  
+                        w-full  relative shadow rounded-lg ">
+                            <div class="title 
+                                py-[35px]
+                                flex justify-between items-center  gap-3 
+                                md:flex-row md:items-center md:justify-between ">
+                                <p class="text-[14px] shrink-0 md:text-[18px] lg:text-[24px] font-bold ">Deal Details
+                                </p>
+                                <!-- <button
+                                    class="monthBtn dark:border-white dark:text-white dark:opacity-100 dark:hover:bg-white dark:hover:text-background-sidebar
+                                    text-[10px]
+                                    md:text-[14px] gap-3
+                                    flex items-center lg:gap-4
+                                    py-[4px]  px-[7px]
+                                    md:py-[9px] md:pl-[16px] md:pr-[16px] 
+                                    rounded border border-border-gray 
+                                    text-text-secondary dark:bg-background-tableheadDark outline-none border-none
+                                    opacity-50 hover:bg-background-gray hover:text-white transition ease-in duration-100"> -->
+                                <button class="button-dark monthBtn">
+                                    <span class="monthText">October</span>
+                                    <i class="fa-solid fa-angle-down "></i>
+                                </button>
+                                <ul
+                                    class="dropdownMenu dark:bg-background-sidebar text-xs
+                                absolute right-[66px] top-28 md:right-10 md:top-20 md:w-[120px] w-[100px] bg-white shadow-md rounded z-50">
+                                    <li class="month ">January</li>
+                                    <li class="month">February</li>
+                                    <li class="month ">March</li>
+                                    <li class="month ">April</li>
+                                    <li class="month ">May</li>
+                                    <li class="month ">June</li>
+                                    <li class="month ">July</li>
+                                    <li class="month ">August</li>
+                                    <li class="month ">September</li>
+                                    <li class="month ">October</li>
+                                    <li class="month ">November</li>
+                                    <li class="month ">December</li>
+                                </ul>
+                            </div>
+                            <div class="overflow-x-auto">
+
+                                <table class="table-fixed min-w-full mb-4">
+                                    <thead
+                                        class=" bg-background-tablehead dark:bg-background-tableheadDark stroke-border-stroke">
+                                        <tr>
+                                            <th
+                                                class="pt-[24px] rounded-bl-[12px] rounded-tl-[12px]  pb-[16px] text-[13px] lg:text-[16px] font-bold text-left pl-[24px] ">
+                                                <span class="table-head">Product Name</span>
+                                            </th>
+                                            <th
+                                                class="pt-[24px]  pb-[16px] text-[13px] lg:text-[16px] font-bold text-left pl-[24px] ">
+                                                <span class="table-head">Location</span>
+                                            </th>
+                                            <th
+                                                class="pt-[24px]  pb-[16px] text-[13px] lg:text-[16px] font-bold text-left pl-[24px] ">
+                                                <span class="table-head">Date - Time</span>
+                                            </th>
+                                            <th
+                                                class="pt-[24px]  pb-[16px] text-[13px] lg:text-[16px] font-bold text-left pl-[24px] ">
+                                                <span class="table-head">piece</span>
+                                            </th>
+                                            <th
+                                                class="pt-[24px]  pb-[16px] text-[13px] lg:text-[16px] font-bold text-left pl-[24px] ">
+                                                <span class="table-head">Amount</span>
+                                            </th>
+                                            <th
+                                                class="pr-[62px] pt-[24px]  pb-[16px] text-[13px] lg:text-[16px] lg:pl-0 pl-7 rounded-br-[12px] rounded-tr-[12px]">
+                                                <span class="table-head ml-5 ">Status</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="pt-6 bg-white dark:bg-background-sidebar ">
+                                        <tr class="shadow">
+                                            <td class="pl-[24px] pb-[28px]   font-bold text-text-primary pt-[24px] ">
+                                                <span class="whitespace-nowrap mr-4 pr-[24px] ">
+                                                    <img class="lg:mr-[16px] inline-block"
+                                                        src="/assets/images/mpbile.png" alt="">
+                                                    <p
+                                                        class="description-img inline-block text-left opacity-60 text-text-primary text-[10px]  lg:text-[14px] whitespace-nowrap dark:text-white dark:opacity-100">
+                                                        Apple watch</p>
+                                                </span>
+                                            </td>
+                                            <td class="table-body-row ">6096 Marjolaine Landing</td>
+                                            <td class="table-body-row">12.09.2026 - 12.53 PM</td>
+                                            <td class="table-body-row">423</td>
+                                            <td class="table-body-row">$34,295</td>
+                                            <td class="table-body-row">
+                                                <button
+                                                    class="bg-background-statusDelivered py-[4px] px-[14px] rounded-full lg:text-[14px] text-[10px] text-white whitespace-nowrap">Delivered</button>
+                                            </td>
+                                        </tr>
+                                        <tr class="shadow">
+                                            <td class="pl-[24px] pb-[28px]   font-bold text-text-primary pt-[24px] ">
+                                                <span class="whitespace-nowrap mr-4 pr-[24px]">
+                                                    <img class="lg:mr-[16px] inline-block"
+                                                        src="/assets/images/mpbile.png" alt="">
+                                                    <p
+                                                        class="description-img inline-block text-left opacity-60 text-text-primary text-[10px]  lg:text-[14px] whitespace-nowrap dark:text-white dark:opacity-100">
+                                                        Apple watch</p>
+                                                </span>
+                                            </td>
+                                            <td class="table-body-row">6096 Marjolaine Landing</td>
+                                            <td class="table-body-row">12.09.2026 - 12.53 PM</td>
+                                            <td class="table-body-row">423</td>
+                                            <td class="table-body-row">$34,295</td>
+                                            <td class="table-body-row">
+                                                <button
+                                                    class="bg-background-statusDelivered py-[4px] px-[14px] rounded-full lg:text-[14px] text-[10px] text-white whitespace-nowrap">Delivered</button>
+                                            </td>
+                                        </tr>
+                                        <tr class="shadow">
+                                            <td class="pl-[24px] pb-[28px]   font-bold text-text-primary pt-[24px] ">
+                                                <span class="whitespace-nowrap mr-4 pr-[24px]">
+                                                    <img class="lg:mr-[16px] inline-block"
+                                                        src="/assets/images/mpbile.png" alt="">
+                                                    <p
+                                                        class="description-img inline-block text-left opacity-60 text-text-primary text-[10px]  lg:text-[14px] whitespace-nowrap dark:text-white dark:opacity-100">
+                                                        Apple watch</p>
+                                                </span>
+                                            </td>
+                                            <td class="table-body-row">6096 Marjolaine Landing</td>
+                                            <td class="table-body-row">12.09.2026 - 12.53 PM</td>
+                                            <td class="table-body-row">423</td>
+                                            <td class="table-body-row">$34,295</td>
+                                            <td class="table-body-row">
+                                                <button
+                                                    class="bg-background-statusDelivered py-[4px] px-[14px] rounded-full lg:text-[14px] text-[10px] text-white whitespace-nowrap">Delivered</button>
+                                            </td>
+                                        </tr>
+                                        <tr class="shadow">
+                                            <td class="pl-[24px] pb-[28px]   font-bold text-text-primary pt-[24px] ">
+                                                <span class="whitespace-nowrap mr-4 pr-[24px]">
+                                                    <img class="lg:mr-[16px] inline-block"
+                                                        src="/assets/images/mpbile.png" alt="">
+                                                    <p
+                                                        class="description-img inline-block text-left opacity-60 text-text-primary text-[10px]  lg:text-[14px] whitespace-nowrap dark:text-white dark:opacity-100">
+                                                        Apple watch</p>
+                                                </span>
+                                            </td>
+                                            <td class="table-body-row">6096 Marjolaine Landing</td>
+                                            <td class="table-body-row">12.09.2026 - 12.53 PM</td>
+                                            <td class="table-body-row">423</td>
+                                            <td class="table-body-row">$34,295</td>
+                                            <td class="table-body-row">
+                                                <button
+                                                    class="bg-background-statusDelivered py-[4px] px-[14px] rounded-full lg:text-[14px] text-[10px] text-white whitespace-nowrap">Delivered</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </main>

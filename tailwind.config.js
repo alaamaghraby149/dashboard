@@ -40,7 +40,10 @@ module.exports = {
           order: "#FEC53D",
           sales: "#4AD991",
           pending: "#FF9066",
-          gray: "#2B3034"
+          gray: "#2B3034",
+          tablehead: "#F1F4F9",
+          statusDelivered: "#00B69B",
+          tableheadDark: "#323D4E",
         },
 
         text: {
@@ -69,7 +72,8 @@ module.exports = {
           light: "#D9E1EE",
           dark: "#3A4558",
           darkSoft: "#4A5568",
-          gray: "#2B3034"
+          gray: "#2B3034",
+          stroke: "#CFCFCF"
         },
 
         state: {
