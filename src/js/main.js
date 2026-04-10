@@ -7,7 +7,7 @@ const langToggle = document.getElementById("langToggle");
 const selectedLang = document.getElementById("selectedLang");
 const langOptions = document.querySelectorAll(".lang-option");
 const langImg = document.getElementById("langimg");
-
+const menuItems = document.querySelectorAll('.menu-item')
 /*======================== dropdown month ========================*/
 const dropdownMonth = document.querySelectorAll(".dropdownMenu"); //ul
 const monthBtn = document.querySelectorAll(".monthBtn"); //button
@@ -65,9 +65,22 @@ document.addEventListener("click", function (e) {
   });
 });
 
-
 window.addEventListener("load", closeDropDownMonth);
+/*======================== MAKE THE ACTIVE LINK IN ASIDE ========================*/
+function selectedLink(e){
+  let selectedLink = e.currentTarget
+  menuItems.forEach(item=>{
+    if(item!==selectedLink){
+      item.classList.remove('selected-item')
+    }else if(item==selectedLink){
+      item.classList.add('selected-item')
+    }
+  })
+}
 
+menuItems.forEach(item=>{
+  item.addEventListener('click', selectedLink)
+})
 /*======================== dropdown functions ========================*/
 function openDropdown() {
   if (!navDataProfile) return;
@@ -161,6 +174,7 @@ function applySystemTheme() {
   } else {
     html.classList.remove("dark");
   }
+  console.log('hey')
   updateChartColors();
 }
 
@@ -334,5 +348,8 @@ function updateChartColors() {
     },
   });
 }
+
+
+
 
 updateChartColors();

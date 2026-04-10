@@ -20,27 +20,27 @@
 }
 
 #mobileMenu-mobile .menu-item-sm {
-  @apply py-2 px-3;
+  @apply py-2 px-3 before:h-[35px];
 }
 
 .menu-item {
-  @apply w-2/3  text-text-primary  cursor-pointer font-bold  h-auto  dark:text-white flex items-center  hover:bg-background dark:hover:bg-background-dark rounded transition duration-75;
+  @apply w-2/3 relative  text-text-primary  cursor-pointer font-bold  h-auto  dark:text-white flex items-center  hover:bg-background dark:hover:bg-background-dark rounded transition duration-75;
 }
 
 #Menu .menu-item-lg {
   @apply py-3 px-5  tracking-[.3px];
 }
 
-.menu-item-sm.is-active,
-.menu-item-lg.is-active {
+.menu-item-sm.selected-item,
+.menu-item-lg.selected-item {
   @apply bg-primary  !text-white  hover:bg-primary;
 }
 
-.first-item::before {
+.selected-item::before {
   content: "";
   position: absolute;
-  top: 110px;
-  left: 0px;
+  top: 0;
+  left: -50px;
   width: 9px;
   height: 50px;
   border-top-right-radius: 4px;
