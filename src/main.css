@@ -55,7 +55,8 @@
   background-repeat: no-repeat;
 }
 
-.nav__data-profile.is-open .dropdown {
+.nav__data-profile.is-open .dropdown,
+.nav__data.is-open .dropdown {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;

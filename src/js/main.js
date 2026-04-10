@@ -65,6 +65,7 @@ document.addEventListener("click", function (e) {
   });
 });
 
+
 window.addEventListener("load", closeDropDownMonth);
 
 /*======================== dropdown functions ========================*/
@@ -98,11 +99,16 @@ if (navDataProfile && dropdown) {
   });
 
   document.addEventListener("click", (event) => {
-    if (!navDataProfile.contains(event.target)) {
+    if (!navDataProfile.contains(event.target) || !navData.contains(e.target)) {
       navDataProfile.classList.remove("is-open");
+      navData.classList.remove("is-open");
     }
   });
+
 }
+
+
+
 
 if (navDataLang && langToggle) {
   langToggle.addEventListener("click", (event) => {
