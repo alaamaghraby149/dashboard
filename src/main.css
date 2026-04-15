@@ -176,3 +176,14 @@ table .table-body-row {
 .button-dark {
   @apply text-[10px] md:text-[14px] py-[4px] px-[7px] md:py-[6px] md:px-[16px] dark:bg-background-tableheadDark text-gray-400 dark:text-white border border-gray-300 dark:outline-none dark:border-none rounded  transition ease-in duration-100;
 }
+
+.swiper {
+  width: 147px;
+  height: 185.89px;  
+}
+.swiper-button-next  {
+  @apply  py-[14.5px] pl-[17.34px] pr-[16.25px] bg-background-bgswiperbtn text-text-swiperbtntext  rounded-full 
+}
+.swiper-button-prev  {
+  @apply  py-[14.5px] pl-[17.34px] pr-[16.25px] bg-background-bgswiperbtn text-text-swiperbtntext  rounded-full 
+}

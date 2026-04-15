@@ -4,24 +4,6 @@ module.exports = {
   content: ["./index.html", "./pages/**/*.html"],
   theme: {
     extend: {
-      // colors: {
-      //   primary: {
-      //     DEFAULT: "#4880FF",
-      //     light: "#4379EE",
-      //     dark: "#12163C",
-      //   },
-      //   text: {
-      //     primary: "#202224",
-      //     secondary: "#2B3034",
-      //     muted: "#606060",
-      //   },
-      //   gray: {
-      //     100: "#EAEAEA",
-      //     200: "#E0E0E0",
-      //     300: "#D8D8D8",
-      //   },
-      //   success: "#00B69B",
-      // },
       colors: {
         primary: {
           DEFAULT: "#4880FF",
@@ -44,6 +26,7 @@ module.exports = {
           tablehead: "#F1F4F9",
           statusDelivered: "#00B69B",
           tableheadDark: "#323D4E",
+          bgswiperbtn: "#E2EAF8"
         },
 
         text: {
@@ -65,6 +48,9 @@ module.exports = {
           sales: "#4AD991",
           percentDown: "#F93C65",
           pending: "#FF9066",
+          swiperbtntext: "#626262",
+          swipersubtitle: "#282D32",
+          swipersubtitledark: "#F2AC34"
         },
 
         border: {

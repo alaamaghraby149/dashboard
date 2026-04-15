@@ -331,23 +331,449 @@ var options = {
 };
 
 var chart = new ApexCharts(document.querySelector("#chart"), options);
-chart.render().then(() => {
-  updateChartColors();
-});
+
 
 /*======================== update chart colors ========================*/
 function updateChartColors() {
-  if (!chart) return;
   const isDarkMode = html.classList.contains("dark");
-  chart.updateOptions({
-    xaxis: {
-      labels: { style: { colors: isDarkMode ? "#FFFFFF" : "#000000" } },
-    },
-    yaxis: {
-      labels: { style: { colors: isDarkMode ? "#FFFFFF" : "#000000" } },
-    },
-  });
+
+  // chart 1
+  if (chart) {
+    chart.updateOptions({
+      xaxis: {
+        labels: { style: { colors: isDarkMode ? "#fff" : "#000" } },
+      },
+      yaxis: {
+        labels: { style: { colors: isDarkMode ? "#fff" : "#000" } },
+      },
+    });
+  }
+
+  // chart 2
+  if (chartRevenue) {
+    chartRevenue.updateOptions({
+      legend: {
+        labels: {
+          colors: isDarkMode ? "#fff" : "#000",
+        },
+      },
+    });
+  }
+
+  // chart 3 (pie)
+  if (chartPie) {
+    chartPie.updateOptions({
+      legend: {
+        labels: {
+          colors: isDarkMode ? "#fff" : "#000",
+        },
+      },
+    });
+  }
+
+  // chart 4
+  if (chartLine) {
+    chartLine.updateOptions({
+      xaxis: {
+        labels: { style: { colors: isDarkMode ? "#fff" : "#000" } },
+      },
+      yaxis: {
+        labels: { style: { colors: isDarkMode ? "#fff" : "#000" } },
+      },
+    });
+  }
 }
+
+
+var optionsRevenue = {
+    series: [{
+        name: 'Sales',
+        data: [70, 40, 28, 51, 200, 109, 100],
+        
+    }, {
+        name: 'Profit',
+        data: [90, 32, 117, 32, 34, 52, 41]
+    }],
+    fill: {
+  colors: ['#FF8F6D', '#DBA5FF']
+},
+    chart: {
+        toolbar: {
+            show: false
+        },
+        height: 350,
+        type: 'area'
+    },
+
+    grid: {
+        show: false
+    },
+
+    dataLabels: {
+        enabled: false
+    },
+    stroke: {
+        curve: 'smooth'
+    },
+    xaxis: {
+        type: 'datetime',
+        categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+    },
+    tooltip: {
+
+        x: {
+            format: 'dd/MM/yy HH:mm'
+        },
+    },
+    legend: {
+        position: 'bottom',
+        itemMargin: {
+            horizontal: 40
+        }
+    },
+    responsive: [
+        {
+            breakpoint: 1024,
+            options: {
+                chart: {
+                    height: 350
+                },
+                stroke: {
+                    with: 3
+                },
+                xaxis: {
+                    tickAmount: 5,
+                    labels: {
+                        formatter: function (value, timestamp, opts) {
+                            return opts.dateFormatter(new Date(timestamp), 'dd MMM');
+                        }
+                    }
+                }
+            }
+        },
+        {
+            breakpoint: 768,
+            options: {
+                chart: {
+                    height: 280
+                },
+                stroke: {
+                    with: 2
+                },
+                xaxis: {
+                    tickAmount: 1,
+                    labels: {
+                        formatter: function (value, timestamp, opts) {
+                            return opts.dateFormatter(new Date(timestamp), 'dd MMM');
+                        }
+                    }
+                },
+                yaxis: {
+                    tickAmount: 2,
+
+                }
+            }
+        },
+    ]
+};
+
+var chartRevenue = new ApexCharts(document.querySelector("#chartRevenu"), optionsRevenue);
+
+
+
+var optionsPie = {
+    series: [44, 55],
+
+    chart: {
+        width: 380,
+        type: 'donut'
+    },
+
+    labels: [
+        'New Customers',
+        'Returning',
+
+    ],
+
+    plotOptions: {
+        pie: {
+            donut: {
+                size: '75%'
+            }
+        }
+    },
+
+    stroke: {
+        width: 8,
+        lineCap: 'round'
+    },
+
+    colors: ['#4F7CFF', '#BFC8D9', '#BFC8D9', '#BFC8D9'],
+
+    legend: {
+        show: true,
+        position: 'bottom'
+    },
+
+    dataLabels: {
+        enabled: false
+    },
+
+    responsive: [{
+        breakpoint: 480,
+        options: {
+            chart: {
+                width: 300
+            }
+        }
+    }]
+};
+
+var chartPie = new ApexCharts(document.querySelector("#piechart"), optionsPie);
+
+
+
+
+var optionsLine = {
+    series: [
+        {
+            type: 'rangeArea',
+
+
+            data: [
+                {
+                    x: 'Jan',
+                    y: [1100, 1900]
+                },
+                {
+                    x: 'Feb',
+                    y: [1200, 1800]
+                },
+                {
+                    x: 'Mar',
+                    y: [900, 2900]
+                },
+                {
+                    x: 'Apr',
+                    y: [1400, 2700]
+                },
+                {
+                    x: 'May',
+                    y: [2600, 3900]
+                },
+                {
+                    x: 'Jun',
+                    y: [500, 1700]
+                },
+                {
+                    x: 'Jul',
+                    y: [1900, 2300]
+                },
+                {
+                    x: 'Aug',
+                    y: [1000, 1500]
+                }
+            ]
+        },
+
+        {
+            type: 'rangeArea',
+            name: 'Team A Range',
+            data: [
+                {
+                    x: 'Jan',
+                    y: [3100, 3400]
+                },
+                {
+                    x: 'Feb',
+                    y: [4200, 5200]
+                },
+                {
+                    x: 'Mar',
+                    y: [3900, 4900]
+                },
+                {
+                    x: 'Apr',
+                    y: [3400, 3900]
+                },
+                {
+                    x: 'May',
+                    y: [5100, 5900]
+                },
+                {
+                    x: 'Jun',
+                    y: [5400, 6700]
+                },
+
+            ]
+        },
+
+        {
+            type: 'line',
+            name: 'Team B Median',
+            data: [
+                {
+                    x: 'Jan',
+                    y: 1500
+                },
+                {
+                    x: 'Feb',
+                    y: 1700
+                },
+                {
+                    x: 'Mar',
+                    y: 1900
+                },
+                {
+                    x: 'Apr',
+                    y: 2200
+                },
+                {
+                    x: 'May',
+                    y: 3000
+                },
+                {
+                    x: 'Jun',
+                    y: 1000
+                },
+                {
+                    x: 'Jul',
+                    y: 2100
+                },
+                {
+                    x: 'Aug',
+                    y: 1200
+                },
+
+            ]
+        },
+        {
+            type: 'line',
+            name: 'Team A Median',
+            data: [
+                {
+                    x: 'Jan',
+                    y: 3300
+                },
+                {
+                    x: 'Feb',
+                    y: 4900
+                },
+                {
+                    x: 'Mar',
+                    y: 4300
+                },
+                {
+                    x: 'Apr',
+                    y: 3700
+                },
+                {
+                    x: 'May',
+                    y: 5500
+                },
+                {
+                    x: 'Jun',
+                    y: 5900
+                },
+                {
+                    x: 'Jul',
+                    y: 4500
+                },
+
+            ]
+        }
+    ],
+    chart: {
+        height: 350,
+        type: 'rangeArea',
+        animations: {
+            speed: 500
+        },
+        toolbar: {
+            show: false
+        },
+    },
+    colors: ['#d4526e', '#33b2df', '#d4526e', '#33b2df'],
+    dataLabels: {
+        enabled: false
+    },
+    fill: {
+        opacity: [0.24, 0.24, 1, 1]
+    },
+    forecastDataPoints: {
+        count: 2
+    },
+    stroke: {
+        curve: 'straight',
+        width: [0, 0, 2, 2]
+    },
+    grid: {
+        show: false
+    },
+    legend: {
+        show: false,
+        customLegendItems: ['Team B', 'Team A'],
+        inverseOrder: true
+    },
+    // title: {
+    //     text: 'Range Area with Forecast Line (Combo)'
+    // },
+    markers: {
+        hover: {
+            sizeOffset: 5
+        }
+    },
+        responsive: [{
+        breakpoint: 480,
+        options: {
+            chart: {
+                width: 200
+            },
+            xaxis: {
+        tickAmount: 2,},
+        yaxis: {
+        tickAmount: 4,}
+        }
+    }]
+};
+
+var chartLine = new ApexCharts(document.querySelector("#linechart"), optionsLine);
+
+Promise.all([
+  chart.render(),
+  chartRevenue.render(),
+  chartPie.render(),
+  chartLine.render()
+]).then(() => {
+  updateChartColors();
+});
+
+
+
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
+
+
+
 
 
 

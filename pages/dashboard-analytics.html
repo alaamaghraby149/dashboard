@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <link rel="stylesheet" href="./dist/output.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/dist/output.css" />
     <title>Dashboard</title>
 </head>
 
@@ -184,7 +184,7 @@ z-50 hidden lg:block">
                                         class="absolute right-0 top-0 flex h-4 w-4 items-center justify-center rounded-full bg-state-danger p-1 text-[8px] text-white md:-top-[6px] md:h-7 md:w-7 md:text-[16px]">6</span>
                                 </div>
                                 <div class="nav__profile-img mb-1 h-9 w-9 rounded-full md:h-12 md:w-12"></div>
-                                <!-- <div
+                                <div
                                     class="
                                             dropdown invisible 
                                             pointer-events-none 
@@ -232,7 +232,7 @@ z-50 hidden lg:block">
                                             Sign
                                             out</p>
                                     </button>
-                                </div> -->
+                                </div>
                             </div>
                         </div>
 
@@ -353,275 +353,102 @@ z-50 hidden lg:block">
             </header>
 
             <!-- Content -->
-            <main class=" p-4 ">
-
+            <main class="p-4">
                 <div class="container">
-                    <h3 class="lg:text-[32px] text-[20px] md:text-[24px] font-bold dark:text-white">Dashboard</h3>
-                    <!-- Statistics Cards -->
+                    <h3 class="lg:text-[32px] text-[20px] md:text-[24px] font-bold dark:text-white">
+                        Dashboard
+                    </h3>
                     <div class="info lg:mt-7 mt-3">
-                        <div class="cards grid grid-cols-1 gap-3 lg:gap-4
-                        md:grid-cols-2 xl:grid-cols-4">
-
-                            <div class="card ">
-                                <div class="card__info">
-                                    <div class="card__info-total flex flex-col gap-3">
-                                        <p class="card__info-total-name">Total user</p>
-                                        <p class="card__info-total-number">40,1256</p>
-                                    </div>
-                                    <div
-                                        class="icon bg-background-user/50 dark:bg-background-user p-[18px] rounded-[28px]">
-                                        <i
-                                            class="fa-solid fa-user-group text-text-user text-[24px] dark:text-white"></i>
-                                    </div>
-                                </div>
-                                <div class="card__details ">
-                                    <i class="fa-solid fa-arrow-trend-up text-text-percent"></i>
-                                    <p class="text-[1rem] font-semibold"><span class="text-text-percent">8.5%</span> Up
-                                        from yesterday</p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card__info">
-                                    <div class="card__info-total">
-                                        <p class="card__info-total-name ">Total Order</p>
-                                        <p class="card__info-total-number">10293</p>
-                                    </div>
-                                    <div
-                                        class="icon bg-background-order/50 dark:bg-background-order p-[18px] rounded-[28px]">
-                                        <i class="fa-solid fa-cube text-text-order text-[24px] dark:text-white"></i>
-                                    </div>
-                                </div>
-                                <div class="card__details ">
-                                    <i class="fa-solid fa-arrow-trend-up text-text-percent"></i>
-                                    <p class="text-[1rem] font-semibold"><span class="text-text-percent">1.3%</span> Up
-                                        from past week</p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card__info">
-                                    <div class="card__info-total">
-                                        <p class="card__info-total-name ">Total Sales</p>
-                                        <p class="font-bold xl:text-[28px] md:text-[20px] lg:text-[24px] text-[18px]">
-                                            $89,000</p>
-                                    </div>
-                                    <div
-                                        class="icon bg-background-sales/50 dark:bg-background-sales p-[18px] rounded-[28px]">
-                                        <i
-                                            class="fa-solid fa-chart-line text-[24px] text-text-sales dark:text-white"></i>
-                                    </div>
-                                </div>
-                                <div class="card__details">
-                                    <i class="fa-solid fa-arrow-trend-down text-text-percentDown"></i>
-                                    <p class="text-[1rem] font-semibold"><span class="text-text-percentDown">4.3%</span>
-                                        Down from yesterday</p>
-                                </div>
-                            </div>
-                            <div class="card ">
-                                <div class="card__info">
-                                    <div class="card__info-total">
-                                        <p class="card__info-total-name">Pending</p>
-                                        <p class="font-bold xl:text-[28px] md:text-[20px] lg:text-[24px] text-[18px]">
-                                            2040</p>
-                                    </div>
-                                    <div
-                                        class="icon bg-background-pending/50 dark:bg-background-pending p-[18px] rounded-[28px]">
-                                        <i
-                                            class="fa-regular fa-clock text-text-pending text-[24px] dark:text-white"></i>
-                                    </div>
-                                </div>
-                                <div class="card__details ">
-                                    <i class="fa-solid fa-arrow-trend-up text-text-percent"></i>
-                                    <p class="text-[1rem] font-semibold"><span class="text-text-percent">1.8%</span> Up
-                                        from yesterday</p>
-                                </div>
-                            </div>
-                        </div>
                         <!-- Chart -->
                         <div
-                            class="lg:my-[30px] md:my-[24px] my-[16px] bg-white dark:bg-background-sidebar dark:text-white  w-full p-[36px] relative  shadow rounded-lg">
-                            <div class="title 
-                                flex justify-between items-center gap-3 
-                                md:flex-row md:items-center md:justify-between ">
-                                <p class="text-[14px] shrink-0 md:text-[18px] lg:text-[24px] font-bold ">Sales Details
+                            class="lg:my-[30px] md:my-[24px] my-[16px] bg-white dark:bg-background-sidebar dark:text-white w-full p-[30px] relative shadow rounded-lg">
+                            <div
+                                class="title flex justify-between items-center gap-3 md:flex-row md:items-center md:justify-between">
+                                <p class="text-[14px] shrink-0 md:text-[18px] lg:text-[24px] font-bold">
+                                    Revenue
                                 </p>
                                 <button class="button-dark monthBtn">
                                     <span class="monthText">October</span>
-                                    <i class="fa-solid fa-angle-down "></i>
+                                    <i class="fa-solid fa-angle-down"></i>
                                 </button>
-                                <ul
-                                    class="dropdownMenu dark:bg-background-sidebar text-xs
-                                absolute right-[66px] top-28 md:right-10 md:top-20 md:w-[120px] w-[100px] bg-white shadow-md rounded z-50">
-                                    <li class="month ">January</li>
-                                    <li class="month">February</li>
-                                    <li class="month ">March</li>
-                                    <li class="month ">April</li>
-                                    <li class="month ">May</li>
-                                    <li class="month ">June</li>
-                                    <li class="month ">July</li>
-                                    <li class="month ">August</li>
-                                    <li class="month ">September</li>
-                                    <li class="month ">October</li>
-                                    <li class="month ">November</li>
-                                    <li class="month ">December</li>
-                                </ul>
+                                <!-- <ul
+                                        class="dropdownMenu dark:bg-background-sidebar text-xs
+                                    absolute right-[66px] top-28 md:right-10 md:top-20 md:w-[120px] w-[100px] bg-white shadow-md rounded z-50">
+                                        <li class="month ">January</li>
+                                        <li class="month">February</li>
+                                        <li class="month ">March</li>
+                                        <li class="month ">April</li>
+                                        <li class="month ">May</li>
+                                        <li class="month ">June</li>
+                                        <li class="month ">July</li>
+                                        <li class="month ">August</li>
+                                        <li class="month ">September</li>
+                                        <li class="month ">October</li>
+                                        <li class="month ">November</li>
+                                        <li class="month ">December</li>
+                                    </ul> -->
                             </div>
 
                             <!-- Chart Content -->
-                            <div id="chart" class="pt-[51px]"></div>
+                            <div id="chartRevenu" class="pt-[51px]"></div>
                         </div>
+                    </div>
 
-                        <div class="lg:my-[30px] md:my-[24px] my-[16px] px-[32px]
-                        bg-white dark:bg-background-sidebar dark:text-white  
-                        w-full  relative shadow rounded-lg ">
-                            <div class="title 
-                                py-[35px]
-                                flex justify-between items-center  gap-3 
-                                md:flex-row md:items-center md:justify-between ">
-                                <p class="text-[14px] shrink-0 md:text-[18px] lg:text-[24px] font-bold ">Deal Details
+                    <div class="grid grid-cols-1 gap-4 lg:gap-7 md:grid-cols-2 lg:grid-cols-3">
+                        <div class="data bg-white rounded-[14px] shadow p-[14px] md:p-[16px] lg:p-6">
+                            <div class="data-title">
+                                <p class="text-sm md:text-[16px] lg:text-[22px] font-bold">
+                                    Customers
                                 </p>
-                            
-                                <button class="button-dark monthBtn">
-                                    <span class="monthText">October</span>
-                                    <i class="fa-solid fa-angle-down "></i>
-                                </button>
-                                <ul
-                                    class="dropdownMenu dark:bg-background-sidebar text-xs
-                                absolute right-[66px] top-28 md:right-10 md:top-20 md:w-[120px] w-[100px] bg-white shadow-md rounded z-50">
-                                    <li class="month ">January</li>
-                                    <li class="month">February</li>
-                                    <li class="month ">March</li>
-                                    <li class="month ">April</li>
-                                    <li class="month ">May</li>
-                                    <li class="month ">June</li>
-                                    <li class="month ">July</li>
-                                    <li class="month ">August</li>
-                                    <li class="month ">September</li>
-                                    <li class="month ">October</li>
-                                    <li class="month ">November</li>
-                                    <li class="month ">December</li>
-                                </ul>
                             </div>
-                            <div class="overflow-x-auto">
-
-                                <table class="table-fixed min-w-full mb-4">
-                                    <thead
-                                        class=" bg-background-tablehead dark:bg-background-tableheadDark stroke-border-stroke">
-                                        <tr>
-                                            <th
-                                                class="pt-[24px] rounded-bl-[12px] rounded-tl-[12px]  pb-[16px] text-[13px] lg:text-[16px] font-bold text-left pl-[24px] ">
-                                                <span class="table-head">Product Name</span>
-                                            </th>
-                                            <th
-                                                class="pt-[24px]  pb-[16px] text-[13px] lg:text-[16px] font-bold text-left pl-[24px] ">
-                                                <span class="table-head">Location</span>
-                                            </th>
-                                            <th
-                                                class="pt-[24px]  pb-[16px] text-[13px] lg:text-[16px] font-bold text-left pl-[24px] ">
-                                                <span class="table-head">Date - Time</span>
-                                            </th>
-                                            <th
-                                                class="pt-[24px]  pb-[16px] text-[13px] lg:text-[16px] font-bold text-left pl-[24px] ">
-                                                <span class="table-head">piece</span>
-                                            </th>
-                                            <th
-                                                class="pt-[24px]  pb-[16px] text-[13px] lg:text-[16px] font-bold text-left pl-[24px] ">
-                                                <span class="table-head">Amount</span>
-                                            </th>
-                                            <th
-                                                class="pr-[62px] pt-[24px]  pb-[16px] text-[13px] lg:text-[16px] lg:pl-0 pl-7 rounded-br-[12px] rounded-tr-[12px]">
-                                                <span class="table-head ml-5 ">Status</span>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="pt-6 bg-white dark:bg-background-sidebar ">
-                                        <tr class="shadow">
-                                            <td class="pl-[24px] pb-[28px]   font-bold text-text-primary pt-[24px] ">
-                                                <span class="whitespace-nowrap mr-4 pr-[24px] ">
-                                                    <img class="lg:mr-[16px] inline-block"
-                                                        src="/assets/images/mpbile.png" alt="">
-                                                    <p
-                                                        class="description-img inline-block text-left opacity-60 text-text-primary text-[10px]  lg:text-[14px] whitespace-nowrap dark:text-white dark:opacity-100">
-                                                        Apple watch</p>
-                                                </span>
-                                            </td>
-                                            <td class="table-body-row ">6096 Marjolaine Landing</td>
-                                            <td class="table-body-row">12.09.2026 - 12.53 PM</td>
-                                            <td class="table-body-row">423</td>
-                                            <td class="table-body-row">$34,295</td>
-                                            <td class="table-body-row">
-                                                <button
-                                                    class="bg-background-statusDelivered py-[4px] px-[14px] rounded-full lg:text-[14px] text-[10px] text-white whitespace-nowrap">Delivered</button>
-                                            </td>
-                                        </tr>
-                                        <tr class="shadow">
-                                            <td class="pl-[24px] pb-[28px]   font-bold text-text-primary pt-[24px] ">
-                                                <span class="whitespace-nowrap mr-4 pr-[24px]">
-                                                    <img class="lg:mr-[16px] inline-block"
-                                                        src="/assets/images/mpbile.png" alt="">
-                                                    <p
-                                                        class="description-img inline-block text-left opacity-60 text-text-primary text-[10px]  lg:text-[14px] whitespace-nowrap dark:text-white dark:opacity-100">
-                                                        Apple watch</p>
-                                                </span>
-                                            </td>
-                                            <td class="table-body-row">6096 Marjolaine Landing</td>
-                                            <td class="table-body-row">12.09.2026 - 12.53 PM</td>
-                                            <td class="table-body-row">423</td>
-                                            <td class="table-body-row">$34,295</td>
-                                            <td class="table-body-row">
-                                                <button
-                                                    class="bg-background-statusDelivered py-[4px] px-[14px] rounded-full lg:text-[14px] text-[10px] text-white whitespace-nowrap">Delivered</button>
-                                            </td>
-                                        </tr>
-                                        <tr class="shadow">
-                                            <td class="pl-[24px] pb-[28px]   font-bold text-text-primary pt-[24px] ">
-                                                <span class="whitespace-nowrap mr-4 pr-[24px]">
-                                                    <img class="lg:mr-[16px] inline-block"
-                                                        src="/assets/images/mpbile.png" alt="">
-                                                    <p
-                                                        class="description-img inline-block text-left opacity-60 text-text-primary text-[10px]  lg:text-[14px] whitespace-nowrap dark:text-white dark:opacity-100">
-                                                        Apple watch</p>
-                                                </span>
-                                            </td>
-                                            <td class="table-body-row">6096 Marjolaine Landing</td>
-                                            <td class="table-body-row">12.09.2026 - 12.53 PM</td>
-                                            <td class="table-body-row">423</td>
-                                            <td class="table-body-row">$34,295</td>
-                                            <td class="table-body-row">
-                                                <button
-                                                    class="bg-background-statusDelivered py-[4px] px-[14px] rounded-full lg:text-[14px] text-[10px] text-white whitespace-nowrap">Delivered</button>
-                                            </td>
-                                        </tr>
-                                        <tr class="shadow">
-                                            <td class="pl-[24px] pb-[28px]   font-bold text-text-primary pt-[24px] ">
-                                                <span class="whitespace-nowrap mr-4 pr-[24px]">
-                                                    <img class="lg:mr-[16px] inline-block"
-                                                        src="/assets/images/mpbile.png" alt="">
-                                                    <p
-                                                        class="description-img inline-block text-left opacity-60 text-text-primary text-[10px]  lg:text-[14px] whitespace-nowrap dark:text-white dark:opacity-100">
-                                                        Apple watch</p>
-                                                </span>
-                                            </td>
-                                            <td class="table-body-row">6096 Marjolaine Landing</td>
-                                            <td class="table-body-row">12.09.2026 - 12.53 PM</td>
-                                            <td class="table-body-row">423</td>
-                                            <td class="table-body-row">$34,295</td>
-                                            <td class="table-body-row">
-                                                <button
-                                                    class="bg-background-statusDelivered py-[4px] px-[14px] rounded-full lg:text-[14px] text-[10px] text-white whitespace-nowrap">Delivered</button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div id="piechart" class="flex justify-center items-center"></div>
+                        </div>
+                        <div class="data bg-white rounded-[14px] shadow p-[14px] md:p-[16px] lg:p-6 flex flex-col justify-between">
+                            <div class="data-title">
+                                <p class="text-sm md:text-[16px] lg:text-[22px] font-bold mb-[23px] ">
+                                    Featured Product
+                                </p>
+                            </div>
+                            <div class="relative mb-[25px] md:mb-[30px] lg:mb-[39.11px] ">
+                                <div
+                                    class="swiper mySwiper ">
+                                    <div class="swiper-wrapper   ">
+                                        <div class="swiper-slide w-full  ">
+                                        </div>
+                                        <div class="swiper-slide w-full  ">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="swiper-button-next ">
+                                    
+                                </div>
+                                <div
+                                    class="swiper-button-prev absolute ">
+                                    
+                                </div>
+                            </div>
+                            <div class="info flex flex-col items-center justify-center">
+                                <p class="text-[14px] md:text-[16px] lg:text-[18px] font-bold leading-5 mb-2 text-text-swipersubtitle">Beats Headphone 2026</p>
+                                <span class="text-[14px] lg:text-[16px] font-bold leading-5 text-primary">$89.00</span>
                             </div>
                         </div>
-
+                        <div class="data bg-white rounded-[14px] shadow p-[14px] md:p-[16px] lg:p-6">
+                            <div class="data-title">
+                                <p class="text-sm md:text-[16px] lg:text-[22px] font-bold">
+                                    Sales Analytics
+                                </p>
+                            </div>
+                            <div id="linechart" class="flex justify-center items-center "></div>
+                        </div>
                     </div>
                 </div>
             </main>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script type="module" src="./src/js/main.js"></script>
+    <script type="module" src="/src/js/main.js"></script>
 </body>
 
 </html>
