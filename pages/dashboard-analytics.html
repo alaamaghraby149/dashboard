@@ -4,6 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+        (function () {
+            const savedTheme = localStorage.getItem("theme");
+
+            if (savedTheme === "dark") {
+                document.documentElement.classList.add("dark");
+            } else if (savedTheme === "light") {
+                document.documentElement.classList.remove("dark");
+            } else {
+                if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                    document.documentElement.classList.add("dark");
+                }
+            }
+
+        })();
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -208,16 +224,16 @@ z-50 hidden lg:block">
                                         </div>
                                     </div>
                                     <div class="modes mt-1 flex items-center justify-between rounded-lg px-2 py-2">
-                                        <button id="computer" type="button"
-                                            class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                        <button type="button"
+                                            class="computer-theme theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
                                             <i class="fa-solid fa-desktop text-[15px]"></i>
                                         </button>
-                                        <button id="dark" type="button"
-                                            class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                        <button type="button"
+                                            class="dark-theme theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
                                             <i class="fa-solid fa-moon text-[15px]"></i>
                                         </button>
-                                        <button id="light" type="button"
-                                            class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                        <button type="button"
+                                            class="light-theme theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
                                             <i class="fa-solid fa-sun text-[15px]"></i>
                                         </button>
                                     </div>
@@ -319,16 +335,16 @@ z-50 hidden lg:block">
                                             </div>
                                             <div
                                                 class="modes mt-1 flex items-center justify-between rounded-lg px-2 py-2">
-                                                <button id="computer" type="button"
-                                                    class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                                <button type="button"
+                                                    class="computer-theme theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
                                                     <i class="fa-solid fa-desktop text-[15px]"></i>
                                                 </button>
-                                                <button id="dark" type="button"
-                                                    class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                                <button type="button"
+                                                    class="dark-theme theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
                                                     <i class="fa-solid fa-moon text-[15px]"></i>
                                                 </button>
-                                                <button id="light" type="button"
-                                                    class="theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                                <button type="button"
+                                                    class="light-theme theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
                                                     <i class="fa-solid fa-sun text-[15px]"></i>
                                                 </button>
                                             </div>
@@ -371,9 +387,9 @@ z-50 hidden lg:block">
                                     <span class="monthText">October</span>
                                     <i class="fa-solid fa-angle-down"></i>
                                 </button>
-                                <!-- <ul
+                                <ul
                                         class="dropdownMenu dark:bg-background-sidebar text-xs
-                                    absolute right-[66px] top-28 md:right-10 md:top-20 md:w-[120px] w-[100px] bg-white shadow-md rounded z-50">
+                                    absolute right-[66px] top-28 md:right-[26px] md:top-20 md:w-[120px] w-[100px] bg-white shadow-md rounded z-50">
                                         <li class="month ">January</li>
                                         <li class="month">February</li>
                                         <li class="month ">March</li>
@@ -386,16 +402,16 @@ z-50 hidden lg:block">
                                         <li class="month ">October</li>
                                         <li class="month ">November</li>
                                         <li class="month ">December</li>
-                                    </ul> -->
+                                    </ul>
                             </div>
 
                             <!-- Chart Content -->
-                            <div id="chartRevenu" class="pt-[51px]"></div>
+                            <div id="chartRevenu" class="pt-[51px] "></div>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 gap-4 lg:gap-7 md:grid-cols-2 lg:grid-cols-3">
-                        <div class="data bg-white rounded-[14px] shadow p-[14px] md:p-[16px] lg:p-6">
+                        <div class="data bg-white rounded-[14px] shadow p-[14px] md:p-[16px] lg:p-6 dark:bg-background-sidebar dark:text-white">
                             <div class="data-title">
                                 <p class="text-sm md:text-[16px] lg:text-[22px] font-bold">
                                     Customers
@@ -403,7 +419,7 @@ z-50 hidden lg:block">
                             </div>
                             <div id="piechart" class="flex justify-center items-center"></div>
                         </div>
-                        <div class="data bg-white rounded-[14px] shadow p-[14px] md:p-[16px] lg:p-6 flex flex-col justify-between">
+                        <div class="data bg-white rounded-[14px] shadow p-[14px] md:p-[16px] lg:p-6 flex flex-col justify-between dark:bg-background-sidebar dark:text-white">
                             <div class="data-title">
                                 <p class="text-sm md:text-[16px] lg:text-[22px] font-bold mb-[23px] ">
                                     Featured Product
@@ -411,7 +427,7 @@ z-50 hidden lg:block">
                             </div>
                             <div class="relative mb-[25px] md:mb-[30px] lg:mb-[39.11px] ">
                                 <div
-                                    class="swiper mySwiper ">
+                                    class="swiper mySwiper swiper-analytics ">
                                     <div class="swiper-wrapper   ">
                                         <div class="swiper-slide w-full  ">
                                         </div>
@@ -429,11 +445,11 @@ z-50 hidden lg:block">
                                 </div>
                             </div>
                             <div class="info flex flex-col items-center justify-center">
-                                <p class="text-[14px] md:text-[16px] lg:text-[18px] font-bold leading-5 mb-2 text-text-swipersubtitle">Beats Headphone 2026</p>
+                                <p class="text-[14px] md:text-[16px] lg:text-[18px] font-bold leading-5 mb-2 text-text-swipersubtitle dark:text-white">Beats Headphone 2026</p>
                                 <span class="text-[14px] lg:text-[16px] font-bold leading-5 text-primary">$89.00</span>
                             </div>
                         </div>
-                        <div class="data bg-white rounded-[14px] shadow p-[14px] md:p-[16px] lg:p-6">
+                        <div class="data bg-white rounded-[14px] shadow p-[14px] md:p-[16px] lg:p-6 dark:bg-background-sidebar dark:text-white">
                             <div class="data-title">
                                 <p class="text-sm md:text-[16px] lg:text-[22px] font-bold">
                                     Sales Analytics
@@ -448,7 +464,14 @@ z-50 hidden lg:block">
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="/src/js/theme.js"></script>
     <script type="module" src="/src/js/main.js"></script>
+    <script type="module" src="/src/js/dropdown.js"></script>
+    <script type="module" src="/src/js/monthDropdown.js"></script>
+    <script type="module" src="/src/js/sidebar.js"></script>
+    <script type="module" src="/src/js/mobileMenu.js"></script>
+    <script src="/src/js/dashborad-analytics.js"></script>
+    
 </body>
 
 </html>
