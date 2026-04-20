@@ -26,7 +26,10 @@ module.exports = {
           tablehead: "#F1F4F9",
           statusDelivered: "#00B69B",
           tableheadDark: "#323D4E",
-          bgswiperbtn: "#E2EAF8"
+          bgswiperbtn: "#E2EAF8",
+          startbtn: "#FF8743",
+          favIcon: "#F9F9F9",
+          bgBtnDark: "#4B5668"
         },
 
         text: {
@@ -50,7 +53,8 @@ module.exports = {
           pending: "#FF9066",
           swiperbtntext: "#626262",
           swipersubtitle: "#282D32",
-          swipersubtitledark: "#F2AC34"
+          rate: "#FF9500",
+          swiperbtndark: "#363636"
         },
 
         border: {
@@ -59,7 +63,8 @@ module.exports = {
           dark: "#3A4558",
           darkSoft: "#4A5568",
           gray: "#2B3034",
-          stroke: "#CFCFCF"
+          stroke: "#CFCFCF",
+          cardStrokeBtn: "#979797",
         },
 
         state: {

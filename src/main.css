@@ -181,9 +181,56 @@ table .table-body-row {
   width: 147px;
   height: 185.89px;  
 }
-.swiper-button-next  {
+#product-swiper-next  {
   @apply  py-[14.5px] pl-[17.34px] pr-[16.25px] bg-background-bgswiperbtn text-text-swiperbtntext  rounded-full 
 }
-.swiper-button-prev  {
+#product-swiper-prev {
   @apply  py-[14.5px] pl-[17.34px] pr-[16.25px] bg-background-bgswiperbtn text-text-swiperbtntext  rounded-full 
+}
+
+.info{
+  @apply lg:mt-7 mt-3
+}
+.productSwiper{
+  width: 100%;
+  height: 346px;
+}
+.cardSwiper {
+  @apply w-full h-auto 
+}
+#feature-next  {
+  @apply  py-[14.5px]  pl-[17.34px] pr-[16.25px] bg-background-bgswiperbtn   text-text-swiperbtntext  rounded-full 
+}
+#feature-prev  {
+  @apply  py-[14.5px] pl-[17.34px] pr-[16.25px] bg-background-bgswiperbtn text-text-swiperbtntext  rounded-full 
+}
+.card-next svg, .card-prev svg{
+  @apply hidden
+} 
+.card-next, .card-prev{
+  @apply bg-background-bgswiperbtn/50 dark:bg-background-sidebar dark:text-white rounded-full 
+}
+
+.product__card{
+  @apply h-full w-full bg-white rounded shadow dark:bg-background-sidebar  hover:scale-105 transition-all 
+}
+
+.product-subtitle{
+  @apply  text-[14px] leading-4 lg:text-[18px] lg:leading-5 font-bold dark:text-white
+}
+.product-price{
+  @apply text-[14px] leading-4 md:text-[16px] lg:leading-5 font-bold text-primary
+}
+.product-favIcon{
+  @apply w-[50px] h-[50px] rounded-full flex items-center justify-center bg-background-favIcon dark:bg-background-bgBtnDark dark:text-white cursor-pointer  hover:scale-110 transition-all
+}
+.product-favIcon.active i {
+  @apply text-red-600
+}
+.product-rate{
+  @apply flex items-center gap-[2px]
+}
+.modify-product__btn{
+  @apply text-[10px] md:text-[14px]  font-bold leading-5 lg:leading-7 flex items-center justify-center bg-background-bgswiperbtn rounded-[8px] lg:rounded-[12px] px-[12.5px] py-[2.5px] w-[120px] md:px-[23px] md:py-[5px] md:w-[140px] cursor-pointer dark:text-white dark:bg-background-bgBtnDark  hover:scale-105 transition-all
+
 }
