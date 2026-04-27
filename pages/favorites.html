@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem("theme");
+
+            if (savedTheme === "dark") {
+                document.documentElement.classList.add("dark");
+            } else if (savedTheme === "light") {
+                document.documentElement.classList.remove("dark");
+            } else {
+                if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                    document.documentElement.classList.add("dark");
+                }
+            }
+
+        })();
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="/dist/output.css">
+    <title>Dashboard</title>
+</head>
+
+<body class="bg-background dark:bg-background-dark font-Nunito">
+    <div class="min-h-screen lg:flex">
+
+        <!-- Sidebar -->
+        <aside id="Menu" class="
+bg-surface dark:bg-background-sidebar
+w-[300px] h-full fixed top-0 left-0
+overflow-y-auto shadow 
+z-50 hidden lg:block">
+
+            <div class="py-4 px-10  bg-white dark:bg-background-sidebar   sticky  top-0 z-40 ">
+                <p class="text-primary-dark text-[30px] m-[9px] font-bold dark:text-white">
+                    <span class="text-primary">Dash</span>Stack
+                </p>
+            </div>
+
+            <ul class="py-4 space-y-4 text-[16px] text-text-primary font-semibold flex flex-col items-center ">
+                <li class="menu-item menu-item-lg  ">
+                    <a href="/index.html">Dashboard</a>
+                </li>
+                <li class="menu-item menu-item-lg ">
+                    <a href="/pages/products.html">Products</a>
+                </li>
+                <li class="menu-item menu-item-lg">
+                    <a href="/pages/favorites.html">Favorites</a>
+                </li>
+                <li class="menu-item menu-item-lg ">
+                    <a href="/pages/index.html">Inbox</a>
+                </li>
+                <li class="menu-item menu-item-lg">
+                    <a href="/pages/orders.html">Order Lists</a>
+                </li>
+                <li class="menu-item menu-item-lg">
+                    <a href="/pages/stock.html">Product Stock</a>
+                </li>
+                <li class="sidebar--group">
+                    <h3 class="sidebar--group__header">
+                        PAGES</h3>
+
+                    <ul
+                        class="p-0 w-full flex flex-col items-center space-y-4 text-[16px] text-text-primary font-semibold">
+                        <li class="menu-item menu-item-lg">
+                            <a href="/pages/pricing.html">Pricing</a>
+                        </li>
+                        <li class="menu-item menu-item-lg">
+                            <a href="/pages/calender.html">Calender</a>
+                        </li>
+                        <li class="menu-item menu-item-lg">
+                            <a href="/pages/Todo.html">To-Do</a>
+                        </li>
+                        <li class="menu-item menu-item-lg">
+                            <a href="/pages/contact.html">Contact</a>
+                        </li>
+                        <li class="menu-item menu-item-lg">
+                            <a href="/pages/invoice.html">Invoice</a>
+                        </li>
+                        <li class="menu-item menu-item-lg">
+                            <a href="/pages/.html">UI Elements</a>
+                        </li>
+                        <li class="menu-item menu-item-lg">
+                            <a href="/pages/.html">Team</a>
+                        </li>
+                        <li class="menu-item menu-item-lg">
+                            <a href="/pages/.html">Table</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="menu-item menu-item-lg">
+                    <a href="/pages/settings.html">Settings</a>
+                </li>
+                <li class="menu-item menu-item-lg">
+                    <a href="/pages/.html">Logout</a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Sidebar Mobile -->
+        <aside id="mobileMenu-mobile"
+            class="bg-surface dark:bg-background-sidebar fixed top-0 left-0 w-72 h-full  overflow-y-auto shadow  z-50 transform -translate-x-full transition-transform duration-300 flex flex-col items-center  lg:hidden">
+            <div class="p-4 bg-white dark:bg-background-sidebar w-full sticky top-0 z-40 py-4 px-10">
+                <p class="text-primary-dark text-2xl font-bold dark:text-white md:text-[32px]">
+                    <span class="text-primary">Dash</span>Stack
+                </p>
+            </div>
+            <ul
+                class="py-4 space-y-4 text-[12px]  md:lg: text-text-primary font-semibold flex flex-col items-center w-full">
+                <li class="menu-item-sm menu-item  ">
+                    <a href="/index.html">Dashboard</a>
+                </li>
+                <li class="menu-item-sm menu-item  ">
+                    <a href="/pages/products.html">Products</a>
+                </li>
+                <li class="menu-item-sm menu-item ">
+                    <a href="/pages/favorites.html">Favorites</a>
+                </li>
+                <li class="menu-item-sm menu-item ">
+                    <a href="/pages/index.html">Inbox</a>
+                </li>
+                <li class="menu-item-sm menu-item">
+                    <a href="/pages/orders.html">Order Lists</a>
+                </li>
+                <li class="menu-item-sm menu-item">
+                    <a href="/pages/stock.html">Product Stock</a>
+                </li>
+                <li class="sidebar--group py-2">
+                    <h3 class="sidebar--group__header">
+                        PAGES</h3>
+                    <ul
+                        class="p-0 w-full flex flex-col items-center space-y-4 text-[12px] md:text-[14px] text-text-primary font-semibold">
+                        <li class="menu-item-sm menu-item">
+                            <a href="/pages/pricing.html">Pricing</a>
+                        </li>
+                        <li class="menu-item-sm menu-item">
+                            <a href="/pages/calender.html">Calender</a>
+                        </li>
+                        <li class="menu-item-sm menu-item">
+                            <a href="/pages/Todo.html">To-Do</a>
+                        </li>
+                        <li class="menu-item-sm menu-item">
+                            <a href="/pages/contact.html">Contact</a>
+                        </li>
+                        <li class="menu-item-sm menu-item">
+                            <a href="/pages/invoice.html">Invoice</a>
+                        </li>
+                        <li class="menu-item-sm menu-item">
+                            <a href="/pages/.html">UI Elements</a>
+                        </li>
+                        <li class="menu-item-sm menu-item">
+                            <a href="/pages/.html">Team</a>
+                        </li>
+                        <li class="menu-item-sm menu-item">
+                            <a href="/pages/.html">Table</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item-sm menu-item">
+                    <a href="/pages/settings.html">Settings</a>
+                </li>
+                <li class="menu-item-sm menu-item">
+                    <a href="/pages/.html">Logout</a>
+                </li>
+            </ul>
+        </aside>
+
+        <div class="min-w-0 flex-1 main-content lg:pl-[300px]  ">
+
+            <!-- Header -->
+            <header class="relative w-full bg-white py-4 dark:bg-background-sidebar ">
+
+                <nav>
+                    <div class="container">
+                        <div class="flex items-center gap-3 md:gap-5 lg:hidden">
+                            <div id="hamburger" class="nav__hamburger-icon flex items-center lg:hidden">
+                                <i class="fa-solid fa-bars text-[20px] md:text-[28px] dark:text-white"></i>
+                            </div>
+                            <div
+                                class="nav__searchbar mx-1 flex flex-1 items-center gap-2 rounded-full bg-background px-3 py-2 dark:bg-background-input">
+                                <i class="fa-solid fa-magnifying-glass text-text-muted dark:text-white"></i>
+                                <input
+                                    class="w-full rounded-md bg-background px-1 text-sm outline-none placeholder:text-text-muted dark:bg-background-input dark:text-white"
+                                    type="text" placeholder="Search">
+                            </div>
+                            <div class="nav__data flex shrink-0 items-center gap-2 md:gap-4">
+                                <div class="relative">
+                                    <i
+                                        class="fa-solid fa-bell text-[24px] text-primary md:text-[40px] cursor-pointer"></i>
+                                    <span
+                                        class="absolute right-0 top-0 flex h-4 w-4 items-center justify-center rounded-full bg-state-danger p-1 text-[8px] text-white md:-top-[6px] md:h-7 md:w-7 md:text-[16px]">6</span>
+                                </div>
+                                <div class="nav__profile-img mb-1 h-9 w-9 rounded-full md:h-12 md:w-12"></div>
+                                <div
+                                    class="
+                                            dropdown invisible 
+                                            pointer-events-none 
+                                            absolute right-1 top-12 z-30 
+                                            mt-3 flex w-64 translate-y-1 
+                                            flex-col overflow-hidden 
+                                            rounded-xl border border-border bg-white 
+                                            p-2 opacity-0 shadow-[0_16px_40px_rgba(18,22,60,0.18)] transition-all duration-200 dark:border-border-dark dark:bg-background-sidebar xl:top-14">
+                                    <div
+                                        class="user flex items-center gap-3 rounded-lg px-2 py-2 transition-colors duration-200 hover:bg-hover-light dark:hover:bg-background-input">
+                                        <span
+                                            class="flex h-9 w-9 items-center justify-center rounded-full bg-surface-muted text-primary dark:bg-background-card dark:text-text-brandLight">
+                                            <i class="fa-solid fa-circle-user text-[18px]"></i>
+                                        </span>
+                                        <div class="flex flex-col">
+                                            <p class="text-sm font-bold text-text-primary dark:text-white">
+                                                Alaa</p>
+                                            <p class="text-xs text-text-light dark:text-text-lighter">
+                                                Administrator
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="modes mt-1 flex items-center justify-between rounded-lg px-2 py-2">
+                                        <button type="button"
+                                            class="computer-theme theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                            <i class="fa-solid fa-desktop text-[15px]"></i>
+                                        </button>
+                                        <button type="button"
+                                            class="dark-theme theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                            <i class="fa-solid fa-moon text-[15px]"></i>
+                                        </button>
+                                        <button type="button"
+                                            class="light-theme theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                            <i class="fa-solid fa-sun text-[15px]"></i>
+                                        </button>
+                                    </div>
+                                    <button type="button"
+                                        class="sign-out mt-1 flex items-center gap-3 rounded-lg px-2 py-2 text-left transition-colors duration-200 hover:bg-state-dangerHover dark:hover:bg-state-dangerHoverDark">
+                                        <span
+                                            class="flex h-9 w-9 items-center justify-center rounded-full bg-state-dangerSoft text-state-danger dark:bg-state-dangerSoftDark">
+                                            <i class="fa-solid fa-arrow-right-from-bracket text-[14px]"></i>
+                                        </span>
+                                        <p
+                                            class="text-sm font-semibold text-state-dangerText dark:text-state-dangerLight">
+                                            Sign
+                                            out</p>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hidden w-full lg:block">
+                            <div class="flex w-full items-center justify-between gap-4 xl:gap-6">
+                                <div
+                                    class="nav__searchbar flex w-full max-w-[520px] items-center gap-3 rounded-full bg-background px-4 py-3 dark:bg-background-input">
+                                    <i class="fa-solid fa-magnifying-glass text-text-muted dark:text-white"></i>
+                                    <input
+                                        class="w-full rounded-md bg-background text-sm outline-none placeholder:text-text-muted dark:bg-background-input dark:text-white"
+                                        type="text" placeholder="Search">
+                                </div>
+                                <div class="nav__data flex shrink-0 items-center gap-3 xl:gap-5">
+                                    <div class="relative">
+                                        <i class="fa-solid fa-bell cursor-pointer text-primary lg:text-[26px]"></i>
+                                        <span
+                                            class="absolute right-0 top-0 flex items-center justify-center rounded-full bg-state-danger p-1 text-[8px] text-white lg:h-[18px] lg:w-[18px] 2xl:h-5 2xl:w-5 2xl:text-[12px]">6</span>
+                                    </div>
+                                    <div class="nav__data-lang relative hidden xl:flex">
+                                        <button id="langToggle" type="button"
+                                            class="lang flex items-center gap-2 rounded-full px-2 py-1 transition-colors duration-200 hover:bg-hover-light dark:hover:bg-background-input"
+                                            aria-label="Change language" aria-expanded="false">
+                                            <span class="flag overflow-hidden rounded-sm">
+                                                <img id="langimg" class="h-[24px] w-9" src="../assets/images/Flag.png"
+                                                    alt="Language flag">
+                                            </span>
+                                            <p id="selectedLang" class="text-sm text-text-muted dark:text-white">
+                                                English</p>
+                                            <i
+                                                class="lang-chevron fa-solid fa-angle-down text-text-muted transition-transform duration-200 dark:text-white"></i>
+                                        </button>
+
+                                        <div id="langMenu"
+                                            class="lang-dropdown absolute right-0 top-11 z-30 flex w-40 translate-y-1 flex-col rounded-xl border border-border bg-white p-2 opacity-0 shadow-[0_12px_30px_rgba(18,22,60,0.14)] transition-all duration-200 pointer-events-none invisible dark:border-border-dark dark:bg-background-sidebar">
+                                            <button type="button" data-lang="English"
+                                                class="lang-option flex gap-2  rounded-lg px-3 py-2 text-left text-sm font-medium text-text-accent transition-colors duration-200 hover:bg-hover-light hover:text-primary dark:text-text-inverse dark:hover:bg-background-input">
+                                                <img class="h-[18px] w-6" src="/assets/images/Flag.png" alt="">
+                                                <span>English</span>
+                                            </button>
+                                            <button type="button" data-lang="Arabic"
+                                                class="lang-option flex gap-2  rounded-lg px-3 py-2 text-left text-sm font-medium text-text-accent transition-colors duration-200 hover:bg-hover-light hover:text-primary dark:text-text-inverse dark:hover:bg-background-input">
+                                                <img class="h-[18px] w-6 rounded" src="/assets/images/flag-arabic.png"
+                                                    alt="">
+                                                <span>Arabic</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="nav__data-profile relative flex cursor-pointer items-center gap-3">
+                                        <div
+                                            class="nav__profile-img mb-1 h-10 w-10 rounded-full xl:h-[44px] xl:w-[44px]">
+                                        </div>
+                                        <div class="hidden flex-col xl:flex">
+                                            <div class="name text-sm font-bold text-text-title dark:text-white">alaa
+                                            </div>
+                                            <p class="text-sm font-semibold text-text-soft dark:text-white">Admin
+                                            </p>
+                                        </div>
+                                        <div class="hidden xl:block">
+                                            <i
+                                                class="profile-chevron fa-solid fa-angle-down flex h-7 w-7 items-center justify-center rounded-full border border-border-light text-text-muted transition-all duration-300 ease-out dark:border-border-darkSoft dark:text-white"></i>
+                                        </div>
+                                        <div
+                                            class="
+                                            dropdown invisible 
+                                            pointer-events-none 
+                                            absolute right-0 top-12 z-30 
+                                            mt-3 flex w-64 translate-y-1 
+                                            flex-col overflow-hidden 
+                                            rounded-xl border border-border bg-white 
+                                            p-2 opacity-0 shadow-[0_16px_40px_rgba(18,22,60,0.18)] transition-all duration-200 dark:border-border-dark dark:bg-background-sidebar xl:top-14">
+                                            <div
+                                                class="user flex items-center gap-3 rounded-lg px-2 py-2 transition-colors duration-200 hover:bg-hover-light dark:hover:bg-background-input">
+                                                <span
+                                                    class="flex h-9 w-9 items-center justify-center rounded-full bg-surface-muted text-primary dark:bg-background-card dark:text-text-brandLight">
+                                                    <i class="fa-solid fa-circle-user text-[18px]"></i>
+                                                </span>
+                                                <div class="flex flex-col">
+                                                    <p class="text-sm font-bold text-text-primary dark:text-white">
+                                                        Alaa</p>
+                                                    <p class="text-xs text-text-light dark:text-text-lighter">
+                                                        Administrator
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="modes mt-1 flex items-center justify-between rounded-lg px-2 py-2">
+                                                <button type="button"
+                                                    class="computer-theme theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                                    <i class="fa-solid fa-desktop text-[15px]"></i>
+                                                </button>
+                                                <button type="button"
+                                                    class="dark-theme theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                                    <i class="fa-solid fa-moon text-[15px]"></i>
+                                                </button>
+                                                <button type="button"
+                                                    class="light-theme theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                                    <i class="fa-solid fa-sun text-[15px]"></i>
+                                                </button>
+                                            </div>
+                                            <button type="button"
+                                                class="sign-out mt-1 flex items-center gap-3 rounded-lg px-2 py-2 text-left transition-colors duration-200 hover:bg-state-dangerHover dark:hover:bg-state-dangerHoverDark">
+                                                <span
+                                                    class="flex h-9 w-9 items-center justify-center rounded-full bg-state-dangerSoft text-state-danger dark:bg-state-dangerSoftDark">
+                                                    <i class="fa-solid fa-arrow-right-from-bracket text-[14px]"></i>
+                                                </span>
+                                                <p
+                                                    class="text-sm font-semibold text-state-dangerText dark:text-state-dangerLight">
+                                                    Sign
+                                                    out</p>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- Content -->
+            <main class=" p-4 ">
+                <div class="container">
+                    <h3 class="lg:text-[32px] text-[20px] md:text-[24px] font-bold dark:text-white">Favorites</h3>
+                    <div class="product-cards mt-[10px] md:mt-[20px] lg:mt-[30px] grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script type="module" src="/src/js/main.js"></script>
+
+</body>
+
+</html>
