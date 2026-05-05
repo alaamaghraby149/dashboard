@@ -29,11 +29,15 @@ module.exports = {
           bgswiperbtn: "#E2EAF8",
           startbtn: "#FF8743",
           favIcon: "#F9F9F9",
-          bgBtnDark: "#4B5668"
+          bgBtnDark: "#4B5668",
+          selectedMessage: "#979797",
+          message: "#F5F5F5",
+          messageDark: "#4A566B",
         },
 
         text: {
           primary: "#202224",
+          light: "#757575",
           secondary: "#2B3034",
           muted: "#646464",
           soft: "#565656",
@@ -54,7 +58,11 @@ module.exports = {
           swiperbtntext: "#626262",
           swipersubtitle: "#282D32",
           rate: "#FF9500",
-          swiperbtndark: "#363636"
+          swiperbtndark: "#363636",
+          starred: "#FFD56D",
+          file: "#9D9D9D",
+          messageDark: "#D9D9D9",
+          
         },
 
         border: {
@@ -65,6 +73,13 @@ module.exports = {
           gray: "#2B3034",
           stroke: "#CFCFCF",
           cardStrokeBtn: "#979797",
+          inboxBorder: "#B9B9B9",
+          work: "#FD9A56",
+          friends: "#D456FD",
+          search: "#D5D5D5",
+          inbox: "#313D4F",
+          messageBorderDark: "#C6C6C6",
+          messageBorder: "#D8D8D8",
         },
 
         state: {

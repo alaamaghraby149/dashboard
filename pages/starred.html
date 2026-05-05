@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem("theme");
+
+            if (savedTheme === "dark") {
+                document.documentElement.classList.add("dark");
+            } else if (savedTheme === "light") {
+                document.documentElement.classList.remove("dark");
+            } else {
+                if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                    document.documentElement.classList.add("dark");
+                }
+            }
+
+        })();
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="/dist/output.css">
+    <title>Dashboard</title>
+</head>
+
+<body class="bg-background dark:bg-background-dark font-Nunito">
+    <div class="min-h-screen lg:flex">
+
+        <!-- Sidebar -->
+        <aside id="Menu" class="
+bg-surface dark:bg-background-sidebar
+w-[300px] h-full fixed top-0 left-0
+overflow-y-auto shadow 
+z-50 hidden lg:block">
+
+            <div class="py-4 px-10  bg-white dark:bg-background-sidebar   sticky  top-0 z-40 ">
+                <p class="text-primary-dark text-[30px] m-[9px] font-bold dark:text-white">
+                    <span class="text-primary">Dash</span>Stack
+                </p>
+            </div>
+
+            <ul class="py-4 space-y-4 text-[16px] text-text-primary font-semibold flex flex-col items-center ">
+                <li class="menu-item menu-item-lg  ">
+                    <a href="/index.html">Dashboard</a>
+                </li>
+                <li class="menu-item menu-item-lg ">
+                    <a href="/pages/products.html">Products</a>
+                </li>
+                <li class="menu-item menu-item-lg">
+                    <a href="/pages/favorites.html">Favorites</a>
+                </li>
+                <li class="menu-item menu-item-lg ">
+                    <a href="/pages/inbox.html">Inbox</a>
+                </li>
+                <li class="menu-item menu-item-lg">
+                    <a href="/pages/orders.html">Order Lists</a>
+                </li>
+                <li class="menu-item menu-item-lg">
+                    <a href="/pages/stock.html">Product Stock</a>
+                </li>
+                <li class="sidebar--group">
+                    <h3 class="sidebar--group__header">
+                        PAGES</h3>
+
+                    <ul
+                        class="p-0 w-full flex flex-col items-center space-y-4 text-[16px] text-text-primary font-semibold">
+                        <li class="menu-item menu-item-lg">
+                            <a href="/pages/pricing.html">Pricing</a>
+                        </li>
+                        <li class="menu-item menu-item-lg">
+                            <a href="/pages/calender.html">Calender</a>
+                        </li>
+                        <li class="menu-item menu-item-lg">
+                            <a href="/pages/Todo.html">To-Do</a>
+                        </li>
+                        <li class="menu-item menu-item-lg">
+                            <a href="/pages/contact.html">Contact</a>
+                        </li>
+                        <li class="menu-item menu-item-lg">
+                            <a href="/pages/invoice.html">Invoice</a>
+                        </li>
+                        <li class="menu-item menu-item-lg">
+                            <a href="/pages/.html">UI Elements</a>
+                        </li>
+                        <li class="menu-item menu-item-lg">
+                            <a href="/pages/.html">Team</a>
+                        </li>
+                        <li class="menu-item menu-item-lg">
+                            <a href="/pages/.html">Table</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="menu-item menu-item-lg">
+                    <a href="/pages/settings.html">Settings</a>
+                </li>
+                <li class="menu-item menu-item-lg">
+                    <a href="/pages/.html">Logout</a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Sidebar Mobile -->
+        <aside id="mobileMenu-mobile"
+            class="bg-surface dark:bg-background-sidebar fixed top-0 left-0 w-72 h-full  overflow-y-auto shadow  z-50 transform -translate-x-full transition-transform duration-300 flex flex-col items-center  lg:hidden">
+            <div class="p-4 bg-white dark:bg-background-sidebar w-full sticky top-0 z-40 py-4 px-10">
+                <p class="text-primary-dark text-2xl font-bold dark:text-white md:text-[32px]">
+                    <span class="text-primary">Dash</span>Stack
+                </p>
+            </div>
+            <ul
+                class="py-4 space-y-4 text-[12px]  md:lg: text-text-primary font-semibold flex flex-col items-center w-full">
+                <li class="menu-item-sm menu-item  ">
+                    <a href="/index.html">Dashboard</a>
+                </li>
+                <li class="menu-item-sm menu-item  ">
+                    <a href="/pages/products.html">Products</a>
+                </li>
+                <li class="menu-item-sm menu-item ">
+                    <a href="/pages/favorites.html">Favorites</a>
+                </li>
+                <li class="menu-item-sm menu-item ">
+                    <a href="/pages/inbox.html">Inbox</a>
+                </li>
+                <li class="menu-item-sm menu-item">
+                    <a href="/pages/orders.html">Order Lists</a>
+                </li>
+                <li class="menu-item-sm menu-item">
+                    <a href="/pages/stock.html">Product Stock</a>
+                </li>
+                <li class="sidebar--group py-2">
+                    <h3 class="sidebar--group__header">
+                        PAGES</h3>
+                    <ul
+                        class="p-0 w-full flex flex-col items-center space-y-4 text-[12px] md:text-[14px] text-text-primary font-semibold">
+                        <li class="menu-item-sm menu-item">
+                            <a href="/pages/pricing.html">Pricing</a>
+                        </li>
+                        <li class="menu-item-sm menu-item">
+                            <a href="/pages/calender.html">Calender</a>
+                        </li>
+                        <li class="menu-item-sm menu-item">
+                            <a href="/pages/Todo.html">To-Do</a>
+                        </li>
+                        <li class="menu-item-sm menu-item">
+                            <a href="/pages/contact.html">Contact</a>
+                        </li>
+                        <li class="menu-item-sm menu-item">
+                            <a href="/pages/invoice.html">Invoice</a>
+                        </li>
+                        <li class="menu-item-sm menu-item">
+                            <a href="/pages/.html">UI Elements</a>
+                        </li>
+                        <li class="menu-item-sm menu-item">
+                            <a href="/pages/.html">Team</a>
+                        </li>
+                        <li class="menu-item-sm menu-item">
+                            <a href="/pages/.html">Table</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item-sm menu-item">
+                    <a href="/pages/settings.html">Settings</a>
+                </li>
+                <li class="menu-item-sm menu-item">
+                    <a href="/pages/.html">Logout</a>
+                </li>
+            </ul>
+        </aside>
+
+        <div class="min-w-0 flex-1 main-content lg:pl-[300px]  ">
+
+            <!-- Header -->
+            <header class="relative w-full bg-white py-4 dark:bg-background-sidebar ">
+
+                <nav>
+                    <div class="container">
+                        <div class="flex items-center gap-3 md:gap-5 lg:hidden">
+                            <div id="hamburger" class="nav__hamburger-icon flex items-center lg:hidden">
+                                <i class="fa-solid fa-bars text-[20px] md:text-[28px] dark:text-white"></i>
+                            </div>
+                            <div
+                                class="nav__searchbar mx-1 flex flex-1 items-center gap-2 rounded-full bg-background px-3 py-2 dark:bg-background-input">
+                                <i class="fa-solid fa-magnifying-glass text-text-muted dark:text-white"></i>
+                                <input
+                                    class="w-full rounded-md bg-background px-1 text-sm outline-none placeholder:text-text-muted dark:bg-background-input dark:text-white"
+                                    type="text" placeholder="Search">
+                            </div>
+                            <div class="nav__data flex shrink-0 items-center gap-2 md:gap-4">
+                                <div class="relative">
+                                    <i
+                                        class="fa-solid fa-bell text-[24px] text-primary md:text-[40px] cursor-pointer"></i>
+                                    <span
+                                        class="absolute right-0 top-0 flex h-4 w-4 items-center justify-center rounded-full bg-state-danger p-1 text-[8px] text-white md:-top-[6px] md:h-7 md:w-7 md:text-[16px]">6</span>
+                                </div>
+                                <div class="nav__profile-img mb-1 h-9 w-9 rounded-full md:h-12 md:w-12"></div>
+                                <div
+                                    class="
+                                            dropdown invisible 
+                                            pointer-events-none 
+                                            absolute right-1 top-12 z-30 
+                                            mt-3 flex w-64 translate-y-1 
+                                            flex-col overflow-hidden 
+                                            rounded-xl border border-border bg-white 
+                                            p-2 opacity-0 shadow-[0_16px_40px_rgba(18,22,60,0.18)] transition-all duration-200 dark:border-border-dark dark:bg-background-sidebar xl:top-14">
+                                    <div
+                                        class="user flex items-center gap-3 rounded-lg px-2 py-2 transition-colors duration-200 hover:bg-hover-light dark:hover:bg-background-input">
+                                        <span
+                                            class="flex h-9 w-9 items-center justify-center rounded-full bg-surface-muted text-primary dark:bg-background-card dark:text-text-brandLight">
+                                            <i class="fa-solid fa-circle-user text-[18px]"></i>
+                                        </span>
+                                        <div class="flex flex-col">
+                                            <p class="text-sm font-bold text-text-primary dark:text-white">
+                                                Alaa</p>
+                                            <p class="text-xs text-text-light dark:text-text-lighter">
+                                                Administrator
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="modes mt-1 flex items-center justify-between rounded-lg px-2 py-2">
+                                        <button type="button"
+                                            class="computer-theme theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                            <i class="fa-solid fa-desktop text-[15px]"></i>
+                                        </button>
+                                        <button type="button"
+                                            class="dark-theme theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                            <i class="fa-solid fa-moon text-[15px]"></i>
+                                        </button>
+                                        <button type="button"
+                                            class="light-theme theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                            <i class="fa-solid fa-sun text-[15px]"></i>
+                                        </button>
+                                    </div>
+                                    <button type="button"
+                                        class="sign-out mt-1 flex items-center gap-3 rounded-lg px-2 py-2 text-left transition-colors duration-200 hover:bg-state-dangerHover dark:hover:bg-state-dangerHoverDark">
+                                        <span
+                                            class="flex h-9 w-9 items-center justify-center rounded-full bg-state-dangerSoft text-state-danger dark:bg-state-dangerSoftDark">
+                                            <i class="fa-solid fa-arrow-right-from-bracket text-[14px]"></i>
+                                        </span>
+                                        <p
+                                            class="text-sm font-semibold text-state-dangerText dark:text-state-dangerLight">
+                                            Sign
+                                            out</p>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hidden w-full lg:block">
+                            <div class="flex w-full items-center justify-between gap-4 xl:gap-6">
+                                <div
+                                    class="nav__searchbar flex w-full max-w-[520px] items-center gap-3 rounded-full bg-background px-4 py-3 dark:bg-background-input">
+                                    <i class="fa-solid fa-magnifying-glass text-text-muted dark:text-white"></i>
+                                    <input
+                                        class="w-full rounded-md bg-background text-sm outline-none placeholder:text-text-muted dark:bg-background-input dark:text-white"
+                                        type="text" placeholder="Search">
+                                </div>
+                                <div class="nav__data flex shrink-0 items-center gap-3 xl:gap-5">
+                                    <div class="relative">
+                                        <i class="fa-solid fa-bell cursor-pointer text-primary lg:text-[26px]"></i>
+                                        <span
+                                            class="absolute right-0 top-0 flex items-center justify-center rounded-full bg-state-danger p-1 text-[8px] text-white lg:h-[18px] lg:w-[18px] 2xl:h-5 2xl:w-5 2xl:text-[12px]">6</span>
+                                    </div>
+                                    <div class="nav__data-lang relative hidden xl:flex">
+                                        <button id="langToggle" type="button"
+                                            class="lang flex items-center gap-2 rounded-full px-2 py-1 transition-colors duration-200 hover:bg-hover-light dark:hover:bg-background-input"
+                                            aria-label="Change language" aria-expanded="false">
+                                            <span class="flag overflow-hidden rounded-sm">
+                                                <img id="langimg" class="h-[24px] w-9" src="../assets/images/Flag.png"
+                                                    alt="Language flag">
+                                            </span>
+                                            <p id="selectedLang" class="text-sm text-text-muted dark:text-white">
+                                                English</p>
+                                            <i
+                                                class="lang-chevron fa-solid fa-angle-down text-text-muted transition-transform duration-200 dark:text-white"></i>
+                                        </button>
+
+                                        <div id="langMenu"
+                                            class="lang-dropdown absolute right-0 top-11 z-30 flex w-40 translate-y-1 flex-col rounded-xl border border-border bg-white p-2 opacity-0 shadow-[0_12px_30px_rgba(18,22,60,0.14)] transition-all duration-200 pointer-events-none invisible dark:border-border-dark dark:bg-background-sidebar">
+                                            <button type="button" data-lang="English"
+                                                class="lang-option flex gap-2  rounded-lg px-3 py-2 text-left text-sm font-medium text-text-accent transition-colors duration-200 hover:bg-hover-light hover:text-primary dark:text-text-inverse dark:hover:bg-background-input">
+                                                <img class="h-[18px] w-6" src="/assets/images/Flag.png" alt="">
+                                                <span>English</span>
+                                            </button>
+                                            <button type="button" data-lang="Arabic"
+                                                class="lang-option flex gap-2  rounded-lg px-3 py-2 text-left text-sm font-medium text-text-accent transition-colors duration-200 hover:bg-hover-light hover:text-primary dark:text-text-inverse dark:hover:bg-background-input">
+                                                <img class="h-[18px] w-6 rounded" src="/assets/images/flag-arabic.png"
+                                                    alt="">
+                                                <span>Arabic</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="nav__data-profile relative flex cursor-pointer items-center gap-3">
+                                        <div
+                                            class="nav__profile-img mb-1 h-10 w-10 rounded-full xl:h-[44px] xl:w-[44px]">
+                                        </div>
+                                        <div class="hidden flex-col xl:flex">
+                                            <div class="name text-sm font-bold text-text-title dark:text-white">alaa
+                                            </div>
+                                            <p class="text-sm font-semibold text-text-soft dark:text-white">Admin
+                                            </p>
+                                        </div>
+                                        <div class="hidden xl:block">
+                                            <i
+                                                class="profile-chevron fa-solid fa-angle-down flex h-7 w-7 items-center justify-center rounded-full border border-border-light text-text-muted transition-all duration-300 ease-out dark:border-border-darkSoft dark:text-white"></i>
+                                        </div>
+                                        <div
+                                            class="
+                                            dropdown invisible 
+                                            pointer-events-none 
+                                            absolute right-0 top-12 z-30 
+                                            mt-3 flex w-64 translate-y-1 
+                                            flex-col overflow-hidden 
+                                            rounded-xl border border-border bg-white 
+                                            p-2 opacity-0 shadow-[0_16px_40px_rgba(18,22,60,0.18)] transition-all duration-200 dark:border-border-dark dark:bg-background-sidebar xl:top-14">
+                                            <div
+                                                class="user flex items-center gap-3 rounded-lg px-2 py-2 transition-colors duration-200 hover:bg-hover-light dark:hover:bg-background-input">
+                                                <span
+                                                    class="flex h-9 w-9 items-center justify-center rounded-full bg-surface-muted text-primary dark:bg-background-card dark:text-text-brandLight">
+                                                    <i class="fa-solid fa-circle-user text-[18px]"></i>
+                                                </span>
+                                                <div class="flex flex-col">
+                                                    <p class="text-sm font-bold text-text-primary dark:text-white">
+                                                        Alaa</p>
+                                                    <p class="text-xs text-text-light dark:text-text-lighter">
+                                                        Administrator
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="modes mt-1 flex items-center justify-between rounded-lg px-2 py-2">
+                                                <button type="button"
+                                                    class="computer-theme theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                                    <i class="fa-solid fa-desktop text-[15px]"></i>
+                                                </button>
+                                                <button type="button"
+                                                    class="dark-theme theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                                    <i class="fa-solid fa-moon text-[15px]"></i>
+                                                </button>
+                                                <button type="button"
+                                                    class="light-theme theme-btn flex h-9 w-9 items-center justify-center rounded-lg bg-surface-soft text-text-button transition-all duration-200 hover:-translate-y-0.5 hover:bg-hover-soft hover:text-primary dark:bg-background-card dark:text-text-softLight dark:hover:bg-background-hoverDark">
+                                                    <i class="fa-solid fa-sun text-[15px]"></i>
+                                                </button>
+                                            </div>
+                                            <button type="button"
+                                                class="sign-out mt-1 flex items-center gap-3 rounded-lg px-2 py-2 text-left transition-colors duration-200 hover:bg-state-dangerHover dark:hover:bg-state-dangerHoverDark">
+                                                <span
+                                                    class="flex h-9 w-9 items-center justify-center rounded-full bg-state-dangerSoft text-state-danger dark:bg-state-dangerSoftDark">
+                                                    <i class="fa-solid fa-arrow-right-from-bracket text-[14px]"></i>
+                                                </span>
+                                                <p
+                                                    class="text-sm font-semibold text-state-dangerText dark:text-state-dangerLight">
+                                                    Sign
+                                                    out</p>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- Content -->
+            <main class=" p-4 ">
+                <div class="container">
+                    <h3 class="lg:text-[32px] text-[20px] md:text-[24px] font-bold dark:text-white">Inbox</h3>
+                    <div class="hidden  lg:block inbox mt-6">
+                        <div class="inbox-lg ">
+
+                            <div
+                                class="inbox__leftside dark:bg-background-sidebar dark:text-white px-[25px]  bg-white shadow dark:border-border-inbox border boeder-border-inboxBorder h-[840px]  rounded-[14px]">
+
+                                <button
+                                    class="mt-6 text-white bg-primary w-full flex items-center justify-center text-[14px] font-bold py-[12px] px-[82px] gap-3 rounded-[8px]">
+                                    <i class="fa-solid fa-plus text-xs"></i>
+                                    Compose
+                                </button>
+
+                                <div class="inbox__leftside-email mt-[24px] mb-[32px]">
+                                    <p class="text-[16px] font-bold tracking-[-0.06px] mb-4">My Email</p>
+                                    <ul class="inbox__list ">
+                                        <li
+                                            class="flex items-center justify-between   bg-primary/20 py-[12px] px-3 rounded-[4px] text-primary">
+                                            <div>
+                                                <i class="fa-regular fa-envelope"></i>
+                                                <span class="font-bold text-[14px]">inbox</span>
+                                            </div>
+                                            <span class="text-[14px] font-bold">1253</span>
+                                        </li>
+                                        <li>
+                                            <div class="dark:text-white">
+                                                <i class="fa-regular fa-star"></i>
+                                                <span class=" text-[14px]">Starred</span>
+                                            </div>
+                                            <span class="text-[14px] opacity-50 dark:text-white">245</span>
+                                        </li>
+                                        <li>
+                                            <div class="dark:text-white">
+                                                <i class="fa-regular fa-paper-plane"></i>
+                                                <span class=" text-[14px]">Sent</span>
+                                            </div>
+                                            <span class="text-[14px] opacity-50 dark:text-white">24,532</span>
+                                        </li>
+                                        <li>
+                                            <div class="dark:text-white">
+                                                <i class="fa-solid fa-pencil"></i>
+                                                <span class=" text-[14px]">Draft</span>
+                                            </div>
+                                            <span class="text-[14px] opacity-50 dark:text-white">09</span>
+                                        </li>
+                                        <li>
+                                            <div class="dark:text-white">
+                                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                                <span class=" text-[14px]">Spam</span>
+                                            </div>
+                                            <span class="text-[14px] opacity-50 dark:text-white">14</span>
+                                        </li>
+                                        <li>
+                                            <div class="dark:text-white">
+                                                <i class="fa-regular fa-comment"></i>
+                                                <span class=" text-[14px]">Important</span>
+                                            </div>
+                                            <span class="text-[14px] opacity-50 dark:text-white">18</span>
+                                        </li>
+                                        <li>
+                                            <div class="dark:text-white">
+                                                <i class="fa-regular fa-trash-can"></i>
+                                                <span class=" text-[14px]">Bin</span>
+                                            </div>
+                                            <span class="text-[14px] opacity-50 dark:text-white">9</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="inbox__leftside-label ">
+                                    <p class="text-[16px] font-bold tracking-[-0.06px] mb-4">Label</p>
+                                    <ul class="w-full">
+                                        <li class="py-[12px] px-3 w-full cursor-pointer">
+                                            <label
+                                                class="inbox__leftside-label-primary flex items-center relative  pl-6 text-[14px] font-semibold">
+                                                Primary
+                                                <input class="absolute w-0 h-0 " type="checkbox">
+                                                <span
+                                                    class="checkmark absolute mt-[2px] inline-block top-0 left-0 bg-white dark:bg-transparent border-2 border-background-statusDelivered rounded h-[15px] w-[15px]"></span>
+                                            </label>
+                                        </li>
+                                        <li class="py-[12px] px-3 w-full cursor-pointer">
+                                            <label
+                                                class="inbox__leftside-label-primary flex items-center relative  pl-6 text-[14px] font-semibold">
+                                                Social
+                                                <input class="absolute w-0 h-0 " type="checkbox">
+                                                <span
+                                                    class="checkmark absolute mt-[2px] inline-block top-0 left-0 bg-white dark:bg-transparent border-2 border-primary rounded h-[15px] w-[15px]"></span>
+                                            </label>
+                                        </li>
+                                        <li class="py-[12px] px-3 w-full cursor-pointer">
+                                            <label
+                                                class="inbox__leftside-label-primary flex items-center relative  pl-6 text-[14px] font-semibold">
+                                                Work
+                                                <input class="absolute w-0 h-0 " type="checkbox">
+                                                <span
+                                                    class="checkmark absolute mt-[2px] inline-block top-0 left-0 bg-white  dark:bg-transparent border-2 border-border-work rounded h-[15px] w-[15px]"></span>
+                                            </label>
+                                        </li>
+                                        <li class="py-[12px] px-3 w-full cursor-pointer">
+                                            <label
+                                                class="inbox__leftside-label-primary flex items-center relative  pl-6 text-[14px] font-semibold">
+                                                Friends
+                                                <input class="absolute w-0 h-0 " type="checkbox">
+                                                <span
+                                                    class="checkmark absolute mt-[2px] inline-block top-0 left-0 bg-white  dark:bg-transparent border-2 border-border-friends rounded h-[15px] w-[15px]"></span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                    <div class="inbox__leftside-label-new w-full mt-[15px] ">
+                                        <button
+                                            class="flex dark:text-white gap-4 items-center tracking-[-0.05px]  px-3 opacity-80 text-[14px] w-full">
+                                            <i class="fa-solid fa-plus text-xs"></i>
+                                            <span>Create New Label</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="inbox__rightside overflow-x-scroll  dark:bg-background-sidebar dark:text-white  xl:w-full  h-[840px] rounded-[14px]  bg-white shadow">
+                                <div
+                                    class="inbox__rightside-controller mb-8 flex flex-col lg:gap-4 xl:gap-0 xl:flex-row xl:items-center xl:justify-between mx-6  mt-6">
+                                    <div
+                                        class="inbox__rightside-controller-search rounded-[20px] dark:bg-background-input dark:border-border-stroke/5  w-[332px] h-[40px]  bg-background  flex items-center gap-3 text-text-primary border border-border-search py-[10px] pl-[16px]">
+                                        <i class="fa-brands fa-sistrix opacity-50 dark:text-white"></i>
+                                        <input class="bg-background dark:bg-background-input dark:border-none outline-none dark:text-white" type="text" placeholder="Search mail">
+                                    </div>
+                                    <div
+                                        class="inbox__rightside-controller-info lg:w-28  px-2 dark:bg-background-input dark:border-border-inbox/50  flex items-center justify-center border border-border-search rounded-[12px] ">
+                                        <i
+                                            class="fa-solid fa-download py-[12px] px-[14px] border-r border-border-search dark:border-border-inbox   flex items-center justify-center cursor-pointer text-lg"></i>
+                                        <i
+                                            class="fa-solid fa-circle-info py-[12px] px-[14px] border-r border-border-search dark:border-border-inbox   flex items-center justify-center cursor-pointer text-lg"></i>
+                                        <i
+                                            class="fa-solid fa-trash py-[12px] px-[14px] flex items-center justify-center cursor-pointer text-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="inbox__rightside-messages dark:text-white">
+                                    <div class="overflow-x-auto">
+                                        <table class="w-full table-auto">
+                                            <tr class="border-b dark:border-border-messageBorderDark/30 truncate xl:overflow-visible xl:whitespace-nowrap ">
+                                                <td>
+                                                    <div class="flex items-center pb-[20px] pt-[22px]">
+                                                        <div
+                                                            class="flex items-center relative pl-6 text-[14px] font-semibold">
+                                                            <input class="absolute w-0 h-0" type="checkbox" />
+                                                            <span
+                                                                class="checkmark absolute inline-block bg-white dark:bg-transparent border-2 border-border rounded h-[16px] w-[16px]"></span>
+                                                        </div>
+    
+                                                        <i class="fa-solid fa-star ml-10 text-text-starred opacity-100"></i>
+                                                        <div class="messege__sender lg:mr-[20px] 2xl:mr-[84px]">
+                                                            <span>Peter Lewis</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="flex items-center">
+                                                        <p
+                                                            class="bg-border-friends/30 dark:bg-border-friends/50 dark:text-white w-[80px] text-center  text-[12px] px-[9px] py-[3px] text-border-friends rounded-[3px] inline-block shrink-0">
+                                                            Friends
+                                                        </p>
+                                                        <div
+                                                            class="message__content pb-[20px] pt-[22px] xl:w-[455px] flex items-center ">
+    
+                                                            <p
+                                                                class="text-[14px] font-semibold truncate xl:overflow-visible xl:whitespace-nowrap w-[200px] text-text-primary ml-5 inline-block dark:!text-white">
+                                                                Our Bachelor of Vacation Home Rental Success
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="message__date flex pb-[20px] pt-[22px] ml-2">
+                                                        <span class="dark:!text-white">7:52 AM</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="border-b dark:border-border-messageBorderDark/30 truncate xl:overflow-visible xl:whitespace-nowrap ">
+                                                <td>
+                                                    <div class="flex items-center pb-[20px] pt-[22px]">
+                                                        <div
+                                                            class="flex items-center relative pl-6 text-[14px] font-semibold">
+                                                            <input class="absolute w-0 h-0" type="checkbox" />
+                                                            <span
+                                                                class="checkmark absolute inline-block bg-white dark:bg-transparent border-2 border-border rounded h-[16px] w-[16px]"></span>
+                                                        </div>
+    
+                                                        <i class="fa-solid fa-star ml-10 text-text-starred opacity-100"></i>
+                                                        <div class="messege__sender lg:mr-[20px] 2xl:mr-[84px]">
+                                                            <span>Minerva
+                                                                Barnett</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+    
+                                                <td>
+                                                    <div class="flex items-center">
+                                                        <p
+                                                            class="bg-border-work/30 dark:bg-border-work/50 dark:text-white hidden w-[80px] text-center  text-[12px] px-[9px] py-[3px] text-border-work rounded-[3px]">
+                                                            Work
+                                                        </p>
+                                                        <div
+                                                            class="message__content xl:w-[455px] flex items-center  pb-[20px] pt-[22px]">
+    
+                                                            <p class="dark:!text-white">
+                                                                Get Best Advertiser In Your Side Pocket
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="message__date flex  pb-[20px] pt-[22px] ml-2">
+                                                        <span class="dark:!text-white">8:13 AM</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="border-b dark:border-border-messageBorderDark/30 truncate xl:overflow-visible xl:whitespace-nowrap ">
+                                                <td>
+                                                    <div class="flex items-center pb-[20px] pt-[22px]">
+                                                        <div
+                                                            class="flex items-center relative pl-6 text-[14px] font-semibold">
+                                                            <input class="absolute w-0 h-0" type="checkbox" />
+                                                            <span
+                                                                class="checkmark absolute inline-block bg-white dark:bg-transparent border-2 border-border rounded h-[16px] w-[16px]"></span>
+                                                        </div>
+    
+                                                        <i class="fa-solid fa-star ml-10 text-text-starred opacity-100"></i>
+                                                        <div class="messege__sender lg:mr-[20px] 2xl:mr-[84px]">
+                                                            <span>Peter Lewis</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="flex items-center">
+                                                        <p
+                                                            class="bg-border-friends/30 dark:bg-border-friends/50 dark:text-white w-[80px] text-center  text-[12px] px-[9px] py-[3px] text-border-friends rounded-[3px] inline-block shrink-0">
+                                                            Friends
+                                                        </p>
+                                                        <div
+                                                            class="message__content pb-[20px] pt-[22px] xl:w-[455px] flex items-center ">
+    
+                                                            <p
+                                                                class="text-[14px] font-semibold truncate xl:overflow-visible xl:whitespace-nowrap w-[200px] text-text-primary ml-5 inline-block dark:!text-white">
+                                                                Our Bachelor of Vacation Home Rental Success
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="message__date flex pb-[20px] pt-[22px] ml-2">
+                                                        <span class="dark:!text-white">7:52 AM</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="border-b dark:border-border-messageBorderDark/30 truncate xl:overflow-visible xl:whitespace-nowrap ">
+                                                <td>
+                                                    <div class="flex items-center pb-[20px] pt-[22px]">
+                                                        <div
+                                                            class="flex items-center relative pl-6 text-[14px] font-semibold">
+                                                            <input class="absolute w-0 h-0" type="checkbox" />
+                                                            <span
+                                                                class="checkmark absolute inline-block bg-white dark:bg-transparent border-2 border-border rounded h-[16px] w-[16px]"></span>
+                                                        </div>
+    
+                                                        <i class="fa-solid fa-star ml-10 text-text-starred opacity-100"></i>
+                                                        <div class="messege__sender lg:mr-[20px] 2xl:mr-[84px]">
+                                                            <span>Clifford
+                                                                Morgan</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+    
+                                                <td>
+                                                    <div class="flex items-center">
+    
+                                                        <p
+                                                            class="bg-primary/30 dark:bg-primary/50 dark:text-white w-[80px] text-center  text-[12px] px-[9px] py-[3px] text-primary rounded-[3px] inline-block">
+                                                            Social
+                                                        </p>
+                                                        <div
+                                                            class="message__content pb-[20px] pt-[22px] xl:w-[455px] flex items-center  ">
+    
+                                                            <p class="dark:!text-white truncate xl:overflow-visible xl:whitespace-nowrap w-[200px]">
+                                                                Enhance Your Brand Potential With Giant Advertising Blimps
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="message__date flex  pb-[20px] pt-[22px] ml-2">
+                                                        <span class="dark:!text-white">4:13 AM</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="border-b dark:border-border-messageBorderDark/30 truncate xl:overflow-visible xl:whitespace-nowrap ">
+                                                <td>
+                                                    <div class="flex items-center pb-[20px] pt-[22px]">
+                                                        <div
+                                                            class="flex items-center relative pl-6 text-[14px] font-semibold">
+                                                            <input class="absolute w-0 h-0" type="checkbox" />
+                                                            <span
+                                                                class="checkmark absolute inline-block bg-white dark:bg-transparent border-2 border-border rounded h-[16px] w-[16px]"></span>
+                                                        </div>
+    
+                                                        <i class="fa-solid fa-star ml-10 text-text-starred opacity-100"></i>
+                                                        <div class="messege__sender lg:mr-[20px] 2xl:mr-[84px]">
+                                                            <span>Cecilia
+                                                                Webster</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+    
+                                                <td>
+                                                    <div class="flex items-center">
+    
+                                                        <p
+                                                            class="bg-border-friends/30 dark:bg-border-friends/50  dark:text-white hidden w-[80px] text-center  text-[12px] px-[9px] py-[3px] text-border-friends rounded-[3px] shrink-0">
+                                                            Primary
+                                                        </p>
+                                                        <div
+                                                            class="message__content pb-[20px] pt-[22px] xl:w-[455px] flex items-center  ">
+    
+                                                            <p class="dark:!text-white">
+                                                                Always Look On The Bright Side Of Life
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="message__date flex  pb-[20px] pt-[22px] ml-2">
+                                                        <span class="dark:!text-white">3:52 AM</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="border-b dark:border-border-messageBorderDark/30 truncate xl:overflow-visible xl:whitespace-nowrap ">
+                                                <td>
+                                                    <div class="flex items-center pb-[20px] pt-[22px]">
+                                                        <div
+                                                            class="flex items-center relative pl-6 text-[14px] font-semibold">
+                                                            <input class="absolute w-0 h-0" type="checkbox" />
+                                                            <span
+                                                                class="checkmark absolute inline-block bg-white dark:bg-transparent border-2 border-border rounded h-[16px] w-[16px]"></span>
+                                                        </div>
+    
+                                                        <i class="fa-solid fa-star ml-10 text-text-starred opacity-100"></i>
+                                                        <div class="messege__sender lg:mr-[20px] 2xl:mr-[84px]">
+                                                            <span>Willie
+                                                                Blake</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+    
+                                                <td>
+                                                    <div class="flex items-center">
+    
+                                                        <p
+                                                            class="bg-background-statusDelivered/30 dark:bg-background-statusDelivered  dark:text-white w-[80px] text-center  text-[12px] px-[9px] py-[3px] text-background-statusDelivered rounded-[3px] inline-block">
+                                                            Primary
+                                                        </p>
+                                                        <div
+                                                            class="message__content pb-[20px] pt-[22px] xl:w-[455px] flex items-center justify-start  ">
+    
+                                                            <p class="dark:!text-white truncate xl:overflow-visible xl:whitespace-nowrap w-[200px]">
+                                                                Our Bachelor of Commerce program is ACBSP-accredited.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="message__date flex  pb-[20px] pt-[22px] ml-2">
+                                                        <span class="dark:!text-white">8:38 AM</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="border-b dark:border-border-messageBorderDark/30 truncate xl:overflow-visible xl:whitespace-nowrap ">
+                                                <td>
+                                                    <div class="flex items-center pb-[20px] pt-[22px]">
+                                                        <div
+                                                            class="flex items-center relative pl-6 text-[14px] font-semibold">
+                                                            <input class="absolute w-0 h-0" type="checkbox" />
+                                                            <span
+                                                                class="checkmark absolute inline-block bg-white dark:bg-transparent border-2 border-border rounded h-[16px] w-[16px]"></span>
+                                                        </div>
+    
+                                                        <i class="fa-solid fa-star ml-10 text-text-starred opacity-100"></i>
+                                                        <div class="messege__sender lg:mr-[20px] 2xl:mr-[84px]">
+                                                            <span>Minerva
+                                                                Barnett</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="flex items-center">
+    
+                                                        <p
+                                                            class="bg-border-work/30 dark:bg-border-work/50  dark:text-white w-[80px] text-center  text-[12px] px-[9px] py-[3px] text-border-work rounded-[3px] inline-block">
+                                                            Work
+                                                        </p>
+                                                        <div
+                                                            class="message__content pb-[20px] pt-[22px] xl:w-[455px] flex items-center justify-start ">
+    
+                                                            <p class="dark:!text-white truncate xl:overflow-visible xl:whitespace-nowrap w-[200px]">
+                                                                Get Best Advertiser In Your Side Pocket
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="message__date flex  pb-[20px] pt-[22px] ml-2">
+                                                        <span class="dark:!text-white">8:38 AM</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="border-b dark:border-border-messageBorderDark/30 truncate xl:overflow-visible xl:whitespace-nowrap ">
+                                                <td>
+                                                    <div class="flex items-center pb-[20px] pt-[22px]">
+                                                        <div
+                                                            class="flex items-center relative pl-6 text-[14px] font-semibold">
+                                                            <input class="absolute w-0 h-0" type="checkbox" />
+                                                            <span
+                                                                class="checkmark absolute inline-block bg-white dark:bg-transparent border-2 border-border rounded h-[16px] w-[16px]"></span>
+                                                        </div>
+    
+                                                        <i class="fa-solid fa-star ml-10 text-text-starred opacity-100"></i>
+                                                        <div class="messege__sender lg:mr-[20px] 2xl:mr-[84px]">
+                                                            <span>Cecilia
+                                                                Webster</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="flex items-center">
+    
+                                                        <p
+                                                            class="bg-border-friends/30 dark:bg-border-friends/50 dark:text-white w-[80px] text-center  text-[12px] px-[9px] py-[3px] text-border-friends rounded-[3px] inline-block shrink-0">
+                                                            Primary
+                                                        </p>
+                                                        <div
+                                                            class="message__content pb-[20px] pt-[22px] xl:w-[455px] flex items-center  ">
+    
+                                                            <p class="dark:!text-white truncate xl:overflow-visible xl:whitespace-nowrap w-[200px]">
+                                                                Always Look On The Bright Side Of Life
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="message__date flex  pb-[20px] pt-[22px] ml-2">
+                                                        <span class="dark:!text-white">3:52 AM</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="flex items-center pb-[20px] pt-[22px]">
+                                                        <div
+                                                            class="flex items-center relative pl-6 text-[14px] font-semibold">
+                                                            <input class="absolute w-0 h-0" type="checkbox" />
+                                                            <span
+                                                                class="checkmark absolute inline-block bg-white dark:bg-transparent border-2 border-border rounded h-[16px] w-[16px]"></span>
+                                                        </div>
+    
+                                                        <i class="fa-solid fa-star ml-10 text-text-starred opacity-100"></i>
+                                                        <div class="messege__sender lg:mr-[20px] 2xl:mr-[84px]">
+                                                            <span>Minerva
+                                                                Barnett</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+    
+                                                <td>
+                                                    <div class="flex items-center">
+    
+                                                        <p
+                                                            class="bg-border-work/30 dark:bg-border-work/50  dark:text-white w-[80px] text-center  text-[12px] px-[9px] py-[3px] text-border-work rounded-[3px] inline-block">
+                                                            Work
+                                                        </p>
+                                                        <div
+                                                            class="message__content pb-[20px] pt-[22px] xl:w-[455px] flex items-center justify-start ">
+    
+                                                            <p class="dark:!text-white  truncate xl:overflow-visible xl:whitespace-nowrap w-[200px]">
+                                                                Get Best Advertiser In Your Side Pocket
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="message__date flex  pb-[20px] pt-[22px] ml-2">
+                                                        <span class="dark:!text-white">8:38 AM</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="lg:hidden inbox mt-6">
+                        <div class="grid grid-cols-1 items-center justify-center gap-5 lg:gap-1 ">
+
+                            <div
+                                class="inbox__leftside dark:bg-background-sidebar dark:text-white px-[25px] w-full col-span-1 bg-white shadow  h-[840px]  rounded-[14px]">
+
+                                <button
+                                    class="mt-6 text-white bg-primary w-full flex items-center justify-center text-[12px] font-bold py-[12px] px-[82px] gap-3 rounded-[8px]">
+                                    <i class="fa-solid fa-plus text-xs"></i>
+                                    Compose
+                                </button>
+
+                                <div class="inbox__leftside-email mt-[24px] mb-[32px]">
+                                    <p class="text-[12px] font-bold tracking-[-0.06px] mb-4">My Email</p>
+                                    <ul class="inbox__list">
+                                        <li
+                                            class="flex items-center justify-between py-[12px] px-3 rounded-[4px] active-item">
+                                            <div>
+                                                <i class="fa-regular fa-envelope"></i>
+                                                <span class="font-bold text-[12px]">inbox</span>
+                                            </div>
+                                            <span class="text-[12px] font-bold">1253</span>
+                                        </li>
+                                        <li>
+                                            <div class="dark:text-white">
+                                                <i class="fa-regular fa-star"></i>
+                                                <span class=" text-[12px]">Starred</span>
+                                            </div>
+                                            <span class="text-[12px] opacity-50 dark:text-white">245</span>
+                                        </li>
+                                        <li>
+                                            <div class="dark:text-white">
+                                                <i class="fa-regular fa-paper-plane"></i>
+                                                <span class=" text-[12px]">Sent</span>
+                                            </div>
+                                            <span class="text-[12px] opacity-50 dark:text-white">24,532</span>
+                                        </li>
+                                        <li>
+                                            <div class="dark:text-white">
+                                                <i class="fa-solid fa-pencil"></i>
+                                                <span class=" text-[12px]">Draft</span>
+                                            </div>
+                                            <span class="text-[12px] opacity-50 dark:text-white">09</span>
+                                        </li>
+                                        <li>
+                                            <div class="dark:text-white">
+                                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                                <span class=" text-[12px]">Spam</span>
+                                            </div>
+                                            <span class="text-[12px] opacity-50 dark:text-white">14</span>
+                                        </li>
+                                        <li>
+                                            <div class="dark:text-white">
+                                                <i class="fa-regular fa-comment"></i>
+                                                <span class=" text-[12px]">Important</span>
+                                            </div>
+                                            <span class="text-[12px] opacity-50 dark:text-white">18</span>
+                                        </li>
+                                        <li>
+                                            <div class="dark:text-white">
+                                                <i class="fa-regular fa-trash-can"></i>
+                                                <span class=" text-[12px]">Bin</span>
+                                            </div>
+                                            <span class="text-[12px] opacity-50 dark:text-white">9</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="inbox__leftside-label ">
+                                    <p class="text-[12px] font-bold tracking-[-0.06px] mb-4">Label</p>
+                                    <ul class="w-full">
+                                        <li class="py-[12px] px-3 w-full cursor-pointer">
+                                            <label
+                                                class="inbox__leftside-label-primary flex items-center relative  pl-6 text-[14px] font-semibold">
+                                                Primary
+                                                <input class="absolute w-0 h-0 " type="checkbox">
+                                                <span
+                                                    class="checkmark dark:bg-transparent absolute mt-[2px] inline-block top-0 left-0 bg-white  border-2 border-background-statusDelivered rounded h-[15px] w-[15px]"></span>
+                                            </label>
+                                        </li>
+                                        <li class="py-[12px] px-3 w-full cursor-pointer">
+                                            <label
+                                                class="inbox__leftside-label-primary flex items-center relative  pl-6 text-[12px] font-semibold">
+                                                Social
+                                                <input class="absolute w-0 h-0 " type="checkbox">
+                                                <span
+                                                    class="checkmark dark:bg-transparent absolute mt-[2px] inline-block top-0 left-0 bg-white  border-2 border-primary rounded h-[15px] w-[15px]"></span>
+                                            </label>
+                                        </li>
+                                        <li class="py-[12px] px-3 w-full cursor-pointer">
+                                            <label
+                                                class="inbox__leftside-label-primary flex items-center relative  pl-6 text-[12px] font-semibold">
+                                                Work
+                                                <input class="absolute w-0 h-0 " type="checkbox">
+                                                <span
+                                                    class="checkmark dark:bg-transparent absolute mt-[2px] inline-block top-0 left-0 bg-white  border-2 border-border-work rounded h-[15px] w-[15px]"></span>
+                                            </label>
+                                        </li>
+                                        <li class="py-[12px] px-3 w-full cursor-pointer">
+                                            <label
+                                                class="inbox__leftside-label-primary flex items-center relative  pl-6 text-[12px] font-semibold">
+                                                Friends
+                                                <input class="absolute w-0 h-0 " type="checkbox">
+                                                <span
+                                                    class="checkmark dark:bg-transparent absolute mt-[2px] inline-block top-0 left-0 bg-white border-2 border-border-friends rounded h-[15px] w-[15px]"></span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                    <div class="inbox__leftside-label-new w-full mt-[15px] ">
+                                        <button
+                                            class="flex gap-4 items-center tracking-[-0.05px]  px-3 opacity-50 text-[12px] w-full">
+                                            <i class="fa-solid fa-plus text-xs"></i>
+                                            <span>Create New Label</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="inbox__rightside dark:bg-background-sidebar dark:text-white overflow-x-auto col-span-3 w-full h-auto rounded-[14px]  bg-white shadow">
+                                <div class="inbox__rightside-controller mb-8 flex flex-col gap-3 mx-6  mt-6">
+                                    <div
+                                        class="inbox__rightside-controller-search rounded-[20px] dark:bg-background-input dark:border-border-stroke/5  w-[150px] h-[40px]  bg-background  flex items-center gap-3 text-text-primary border border-border-search py-[10px] pl-[16px]">
+                                        <i class="fa-brands fa-sistrix opacity-50 dark:text-white"></i>
+                                        <input class="bg-background dark:bg-background-input dark:text-white outline-none w-full rounded-[20px]" type="text"
+                                            placeholder="Search mail">
+                                    </div>
+                                    <div
+                                        class="inbox__rightside-controller-info w-[90px] dark:bg-background-input dark:border-border-inbox/50 flex items-center  border border-border-search rounded-[12px] ">
+                                        <i
+                                            class="fa-solid fa-download py-[12px] px-[14px] border-r border-border-search dark:border-border-inbox flex items-center justify-center cursor-pointer text-sm"></i>
+                                        <i
+                                            class="fa-solid fa-circle-info py-[12px] px-[14px] border-r border-border-search dark:border-border-inbox flex items-center justify-center cursor-pointer text-sm"></i>
+                                        <i
+                                            class="fa-solid fa-trash py-[12px] px-[10px] flex items-center justify-center cursor-pointer text-sm"></i>
+                                    </div>
+                                </div>
+                                <div class="inbox__rightside-messages  ">
+                                    <div class="overflow-x-auto">
+
+                                        <table class="w-full table-auto min-w-[900px] ">
+                                            <tr class="border-b shrink-0 dark:border-border-messageBorderDark/30 dark:text-white">
+                                                <td>
+                                                    <div class="flex items-center pb-[20px] pt-[22px]">
+                                                        <div
+                                                            class="flex items-center relative pl-6 text-[12px] font-semibold">
+                                                            <input class="absolute w-0 h-0" type="checkbox" />
+                                                            <span
+                                                                class="checkmark absolute inline-block dark:bg-transparent bg-white border-2 border-border rounded h-[16px] w-[16px]"></span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <i class="fa-solid fa-star ml-10 text-text-starred opacity-100"></i>
+                                                </td>
+
+                                                <td>
+                                                    <div class="messege__sender flex lg:mr-[20px] 2xl:mr-[84px]">
+                                                        <span class="text-[12px] shrink-0 font-bold ml-[30px]">Jullu
+                                                            Jalal</span>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="flex items-center ml-6">
+
+                                                        <p
+                                                            class="bg-background-statusDelivered/30 w-[80px] text-center hidden text-[12px] px-[9px] py-[3px] text-background-statusDelivered rounded-[3px]">
+                                                            Primary
+                                                        </p>
+                                                        <div
+                                                            class="message__content  flex mr-14 pb-[20px] pt-[22px] ">
+                                                            <p
+                                                                class="text-[12px] dark:!text-white font-semibold text-text-primary ml-5 inline-block shrink-0">
+                                                                Our Bachelor of Commerce program is ACBSP-accredited.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="message__date flex text-end pb-[20px] pt-[22px] mr-5">
+                                                        <span class="text-text-secondary dark:!text-white shrink-0  text-[14px]">8:38
+                                                            AM</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="border-b shrink-0 dark:border-border-messageBorderDark/30">
+                                                <td>
+                                                    <div class="flex items-center pb-[20px] pt-[22px]">
+                                                        <div
+                                                            class="flex items-center relative pl-6 text-[12px] font-semibold">
+                                                            <input class="absolute w-0 h-0" type="checkbox" />
+                                                            <span
+                                                                class="checkmark absolute inline-block dark:bg-transparent bg-white border-2 border-border rounded h-[16px] w-[16px]"></span>
+                                                        </div>
+
+
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <i class="fa-solid fa-star ml-10 text-text-starred opacity-100"></i>
+                                                </td>
+                                                <td>
+                                                    <div class="messege__sender flex lg:mr-[20px] 2xl:mr-[84px]">
+                                                        <span class="text-[12px] shrink-0 font-bold ml-[30px]">Jullu
+                                                            Jalal</span>
+                                                    </div>
+                                                </td>
+
+
+                                                <td>
+                                                    <div class="flex items-center ml-6">
+
+                                                        <p
+                                                            class="bg-background-statusDelivered/30 w-[80px] text-center  text-[12px] px-[9px] py-[3px] text-background-statusDelivered rounded-[3px]">
+                                                            Primary
+                                                        </p>
+                                                        <div
+                                                            class="message__content  flex mr-14 pb-[20px] pt-[22px] ">
+                                                            <p
+                                                                class="text-[12px] dark:!text-white font-semibold text-text-primary ml-5 inline-block shrink-0">
+                                                                Our Bachelor of Commerce program is ACBSP-accredited.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="message__date  flex text-end pb-[20px] pt-[22px] mr-5">
+                                                        <span class="text-text-secondary shrink-0 dark:!text-white text-[14px]">8:38
+                                                            AM</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="border-b shrink-0 dark:border-border-messageBorderDark/30">
+                                                <td>
+                                                    <div class="flex items-center pb-[20px] pt-[22px]">
+                                                        <div
+                                                            class="flex items-center relative pl-6 text-[12px] font-semibold">
+                                                            <input class="absolute w-0 h-0" type="checkbox" />
+                                                            <span
+                                                                class="checkmark absolute inline-block dark:bg-transparent bg-white border-2 border-border rounded h-[16px] w-[16px]"></span>
+                                                        </div>
+
+
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <i class="fa-solid fa-star ml-10 text-text-starred opacity-100"></i>
+                                                </td>
+                                                <td>
+                                                    <div class="messege__sender flex lg:mr-[20px] 2xl:mr-[84px]">
+                                                        <span class="text-[12px] shrink-0 font-bold ml-[30px]">Jullu
+                                                            Jalal</span>
+                                                    </div>
+                                                </td>
+
+
+                                                <td>
+                                                    <div class="flex items-center ml-6">
+
+                                                        <p
+                                                            class="bg-background-statusDelivered/30 w-[80px] text-center hidden text-[12px] px-[9px] py-[3px] text-background-statusDelivered rounded-[3px]">
+                                                            Primary
+                                                        </p>
+                                                        <div
+                                                            class="message__content  flex mr-14 pb-[20px] pt-[22px] ">
+                                                            <p
+                                                                class="text-[12px] dark:!text-white font-semibold text-text-primary ml-5 inline-block shrink-0">
+                                                                Our Bachelor of Commerce program is ACBSP-accredited.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="message__date  flex text-end pb-[20px] pt-[22px] mr-5">
+                                                        <span class="text-text-secondary shrink-0 dark:!text-white text-[14px]">8:38
+                                                            AM</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="border-b shrink-0 dark:border-border-messageBorderDark/30">
+                                                <td>
+                                                    <div class="flex items-center pb-[20px] pt-[22px]">
+                                                        <div
+                                                            class="flex items-center relative pl-6 text-[12px] font-semibold">
+                                                            <input class="absolute w-0 h-0" type="checkbox" />
+                                                            <span
+                                                                class="checkmark absolute inline-block dark:bg-transparent bg-white border-2 border-border rounded h-[16px] w-[16px]"></span>
+                                                        </div>
+
+
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <i class="fa-solid fa-star ml-10 text-text-starred opacity-100"></i>
+                                                </td>
+                                                <td>
+                                                    <div class="messege__sender flex lg:mr-[20px] 2xl:mr-[84px]">
+                                                        <span class="text-[12px] shrink-0 font-bold ml-[30px]">Jullu
+                                                            Jalal</span>
+                                                    </div>
+                                                </td>
+
+
+                                                <td>
+                                                    <div class="flex items-center ml-6">
+
+                                                        <p
+                                                            class="bg-background-statusDelivered/30 w-[80px] text-center  text-[12px] px-[9px] py-[3px] text-background-statusDelivered rounded-[3px]">
+                                                            Primary
+                                                        </p>
+                                                        <div
+                                                            class="message__content  flex mr-14 pb-[20px] pt-[22px] ">
+                                                            <p
+                                                                class="text-[12px] dark:!text-white font-semibold text-text-primary ml-5 inline-block shrink-0">
+                                                                Our Bachelor of Commerce program is ACBSP-accredited.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="message__date  flex text-end pb-[20px] pt-[22px] mr-5">
+                                                        <span class="text-text-secondary shrink-0 dark:!text-white text-[14px]">8:38
+                                                            AM</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="border-b shrink-0 dark:border-border-messageBorderDark/30">
+                                                <td>
+                                                    <div class="flex items-center pb-[20px] pt-[22px]">
+                                                        <div
+                                                            class="flex items-center relative pl-6 text-[12px] font-semibold">
+                                                            <input class="absolute w-0 h-0" type="checkbox" />
+                                                            <span
+                                                                class="checkmark absolute inline-block dark:bg-transparent bg-white border-2 border-border rounded h-[16px] w-[16px]"></span>
+                                                        </div>
+
+
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <i class="fa-solid fa-star ml-10 text-text-starred opacity-100"></i>
+                                                </td>
+                                                <td>
+                                                    <div class="messege__sender flex lg:mr-[20px] 2xl:mr-[84px]">
+                                                        <span class="text-[12px] shrink-0 font-bold ml-[30px]">Jullu
+                                                            Jalal</span>
+                                                    </div>
+                                                </td>
+
+
+                                                <td>
+                                                    <div class="flex items-center ml-6">
+
+                                                        <p
+                                                            class="bg-background-statusDelivered/30 w-[80px] text-center hidden text-[12px] px-[9px] py-[3px] text-background-statusDelivered rounded-[3px]">
+                                                            Primary
+                                                        </p>
+                                                        <div
+                                                            class="message__content  flex mr-14 pb-[20px] pt-[22px] ">
+                                                            <p
+                                                                class="text-[12px] dark:!text-white font-semibold text-text-primary ml-5 inline-block shrink-0">
+                                                                Our Bachelor of Commerce program is ACBSP-accredited.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="message__date flex text-end pb-[20px] pt-[22px] mr-5">
+                                                        <span class="text-text-secondary shrink-0 dark:!text-white text-[14px]">8:38
+                                                            AM</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="border-b shrink-0 dark:border-border-messageBorderDark/30">
+                                                <td>
+                                                    <div class="flex items-center pb-[20px] pt-[22px]">
+                                                        <div
+                                                            class="flex items-center relative pl-6 text-[12px] font-semibold">
+                                                            <input class="absolute w-0 h-0" type="checkbox" />
+                                                            <span
+                                                                class="checkmark absolute inline-block dark:bg-transparent bg-white border-2 border-border rounded h-[16px] w-[16px]"></span>
+                                                        </div>
+
+
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <i class="fa-solid fa-star ml-10 text-text-starred opacity-100"></i>
+                                                </td>
+                                                <td>
+                                                    <div class="messege__sender flex lg:mr-[20px] 2xl:mr-[84px]">
+                                                        <span class="text-[12px] shrink-0 font-bold ml-[30px]">Jullu
+                                                            Jalal</span>
+                                                    </div>
+                                                </td>
+
+
+                                                <td>
+                                                    <div class="flex items-center ml-6">
+
+                                                        <p
+                                                            class="bg-background-statusDelivered/30 w-[80px] text-center  text-[12px] px-[9px] py-[3px] text-background-statusDelivered rounded-[3px]">
+                                                            Primary
+                                                        </p>
+                                                        <div
+                                                            class="message__content  flex mr-14 pb-[20px] pt-[22px] ">
+                                                            <p
+                                                                class="text-[12px] dark:!text-white font-semibold text-text-primary ml-5 inline-block shrink-0">
+                                                                Our Bachelor of Commerce program is ACBSP-accredited.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="message__date  flex text-end pb-[20px] pt-[22px] mr-5">
+                                                        <span class="text-text-secondary shrink-0 dark:!text-white text-[14px]">8:38
+                                                            AM</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script type="module" src="/src/js/main.js"></script>
+
+</body>
+
+</html>

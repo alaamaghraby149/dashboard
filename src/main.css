@@ -232,5 +232,52 @@ table .table-body-row {
 }
 .modify-product__btn{
   @apply text-[10px] md:text-[14px]  font-bold leading-5 lg:leading-7 flex items-center justify-center bg-background-bgswiperbtn rounded-[8px] lg:rounded-[12px] px-[12.5px] py-[2.5px] w-[120px] md:px-[23px] md:py-[5px] md:w-[140px] cursor-pointer dark:text-white dark:bg-background-bgBtnDark  hover:scale-105 transition-all
+}
 
+.inbox__list > *:not(:first-child) {
+  @apply flex items-center justify-between font-semibold  py-[12px] px-3 rounded-[4px] text-black
+} 
+.inbox__list li{
+  @apply cursor-pointer
+}
+.inbox__list li div{
+  @apply flex items-center justify-center gap-3 
+}
+.message__content{
+  @apply justify-start items-start
+}
+tr td i {
+  @apply opacity-30
+}
+.inbox-lg {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 24px;
+}
+
+.inbox-lg .inbox__leftside {
+  grid-column: 1;
+}
+
+.inbox-lg .inbox__rightside {
+  grid-column: 2;
+}
+
+.active-item{
+  @apply bg-primary/20  !text-primary rounded-[4px]
+}
+.messege__sender,.message__date{
+  @apply flex 
+}
+.message__date span{
+  @apply shrink-0 
+}
+.messege__sender span {
+  @apply shrink-0 text-[14px] font-bold ml-[30px] 
+}
+.message__content p {
+  @apply text-[14px] font-semibold text-text-primary ml-5 inline-block shrink-0
+}
+.message__date span{
+  @apply mr-5 text-text-secondary text-[14px]
 }
