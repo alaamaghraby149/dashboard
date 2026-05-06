@@ -388,17 +388,17 @@ z-50 hidden lg:block">
                                     <p class="text-[16px] font-bold tracking-[-0.06px] mb-4">My Email</p>
                                     <ul class="inbox__list ">
                                         <li
-                                            class="flex items-center justify-between   bg-primary/20 py-[12px] px-3 rounded-[4px] text-primary">
+                                            class="flex items-center justify-between py-[12px] px-3 rounded-[4px] ">
                                             <div>
                                                 <i class="fa-regular fa-envelope"></i>
-                                                <span class="font-bold text-[14px]">inbox</span>
+                                                <a class="font-bold text-[14px]" href="inbox.html">inbox</a>
                                             </div>
                                             <span class="text-[14px] font-bold">1253</span>
                                         </li>
-                                        <li>
+                                        <li class="active-item">
                                             <div class="dark:text-white">
                                                 <i class="fa-regular fa-star"></i>
-                                                <span class=" text-[14px]">Starred</span>
+                                                <a class=" text-[14px]" href="starred.html">Starred</a>
                                             </div>
                                             <span class="text-[14px] opacity-50 dark:text-white">245</span>
                                         </li>
@@ -875,7 +875,7 @@ z-50 hidden lg:block">
 
 
                     <div class="lg:hidden inbox mt-6">
-                        <div class="grid grid-cols-1 items-center justify-center gap-5 lg:gap-1 ">
+                        <div class="grid grid-cols-1 items-center justify-center">
 
                             <div
                                 class="inbox__leftside dark:bg-background-sidebar dark:text-white px-[25px] w-full col-span-1 bg-white shadow  h-[840px]  rounded-[14px]">
@@ -890,17 +890,17 @@ z-50 hidden lg:block">
                                     <p class="text-[12px] font-bold tracking-[-0.06px] mb-4">My Email</p>
                                     <ul class="inbox__list">
                                         <li
-                                            class="flex items-center justify-between py-[12px] px-3 rounded-[4px] active-item">
+                                            class="flex items-center justify-between py-[12px] px-3 rounded-[4px]">
                                             <div>
                                                 <i class="fa-regular fa-envelope"></i>
-                                                <span class="font-bold text-[12px]">inbox</span>
+                                                <a class="font-bold text-[12px]" href="inbox.html">inbox</a>
                                             </div>
-                                            <span class="text-[12px] font-bold">1253</span>
+                                            <span class="text-[12px] opacity-50 font-bold">1253</span>
                                         </li>
-                                        <li>
+                                        <li class="active-item">
                                             <div class="dark:text-white">
                                                 <i class="fa-regular fa-star"></i>
-                                                <span class=" text-[12px]">Starred</span>
+                                                <a class=" text-[12px]" href="starred.html">Starred</a>
                                             </div>
                                             <span class="text-[12px] opacity-50 dark:text-white">245</span>
                                         </li>
@@ -993,7 +993,7 @@ z-50 hidden lg:block">
                             </div>
 
                             <div
-                                class="inbox__rightside dark:bg-background-sidebar dark:text-white overflow-x-auto col-span-3 w-full h-auto rounded-[14px]  bg-white shadow">
+                                class="inbox__rightside dark:bg-background-sidebar dark:text-white overflow-x-auto col-span-3 w-full h-auto rounded-[14px] mt-5 bg-white shadow">
                                 <div class="inbox__rightside-controller mb-8 flex flex-col gap-3 mx-6  mt-6">
                                     <div
                                         class="inbox__rightside-controller-search rounded-[20px] dark:bg-background-input dark:border-border-stroke/5  w-[150px] h-[40px]  bg-background  flex items-center gap-3 text-text-primary border border-border-search py-[10px] pl-[16px]">

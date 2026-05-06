@@ -264,7 +264,7 @@ tr td i {
 }
 
 .active-item{
-  @apply bg-primary/20  !text-primary rounded-[4px]
+  @apply bg-primary/20  !text-primary rounded-[4px] font-bold !opacity-100
 }
 .messege__sender,.message__date{
   @apply flex 
